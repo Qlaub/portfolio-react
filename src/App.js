@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
@@ -7,14 +7,16 @@ import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 
 function App() {
+  const [linkSelected, setLinkSelected] = useState('about');
+
   return (
     <div>
-      <Header></Header>
+      <Header setLinkSelected={setLinkSelected}></Header>
       <main>
-        <About></About>
-        <Portfolio></Portfolio>
-        <Contact></Contact>
-        <Resume></Resume>
+        {linkSelected === 'about' && <About></About>}
+        {linkSelected === 'work' && <Portfolio></Portfolio>}
+        {linkSelected === 'contact' && <Contact></Contact>}
+        {linkSelected === 'resume' && <Resume></Resume>}
       </main>
       <Footer></Footer>
     </div>

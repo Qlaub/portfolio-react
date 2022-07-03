@@ -24,7 +24,7 @@ function Resume() {
         <li>MySQL</li>
         <li>Stripe</li>
       </ul>
-      <a href="./assets/documents/GlaubitzResume.pdf" download>Download resume as a PDF</a>
+      <a href="./assets/documents/GlaubitzResume.pdf" download>Download my resume as a PDF</a>
     </div>
   )
 }
