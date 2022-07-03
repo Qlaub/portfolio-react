@@ -18,14 +18,22 @@ function Nav({setLinkSelected}) {
   }
 
   return (
-    <nav>
-      <ul>
-        <li onClick={() => clickHandler('about')}>About Me</li>
-        <li onClick={() => clickHandler('work')}>Work</li>
-        <li onClick={() => clickHandler('contact')}>Contact Me</li>
-        <li onClick={() => clickHandler('resume')}>Resume</li>
-      </ul>
-    </nav>
+<nav>
+  <ul className="flex ml-6">
+    <li className="mr-5 md:mr-8 text-lg text-black tracking-wide transition ease-in-out duration-75 border-b-2 border-transparent hover:border-rose-200 cursor-pointer" 
+      onClick={() => clickHandler('about')}>About
+    </li>
+    <li className="mr-5 md:mr-8 text-lg text-black tracking-wide transition ease-in-out duration-75 border-b-2 border-transparent hover:border-rose-200 cursor-pointer" 
+      onClick={() => clickHandler('work')}>Work
+    </li>
+    <li className="mr-5 md:mr-8 text-lg text-black tracking-wide transition ease-in-out duration-75 border-b-2 border-transparent hover:border-rose-200 cursor-pointer" 
+      onClick={() => clickHandler('contact')}>Contact
+    </li>
+    <li className="mr-5 md:mr-8 text-lg text-black tracking-wide transition ease-in-out duration-75 border-b-2 border-transparent hover:border-rose-200 cursor-pointer" 
+      onClick={() => clickHandler('resume')}>Resume
+    </li>
+  </ul>
+</nav>
   )
 }
 

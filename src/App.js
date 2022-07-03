@@ -10,7 +10,7 @@ function App() {
   const [linkSelected, setLinkSelected] = useState('about');
 
   return (
-    <div>
+    <div className="">
       <Header setLinkSelected={setLinkSelected}></Header>
       <main>
         {linkSelected === 'about' && <About></About>}
