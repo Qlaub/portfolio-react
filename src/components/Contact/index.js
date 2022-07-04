@@ -5,11 +5,11 @@ function Contact() {
     <section>
       <h2>Contact Me</h2>
       <form>
-        <label for="name">Name: </label>
+        <label htmlFor="name">Name: </label>
         <input type="text" name="name" />
-        <label for="email">Email: </label>
+        <label htmlFor="email">Email: </label>
         <input type="text" name="email" />
-        <label for="message">Message: </label>
+        <label htmlFor="message">Message: </label>
         <input type="textarea" />
       </form>
     </section>

@@ -48,8 +48,8 @@ function Project() {
 
   return (
     <div>
-      {projects.map(project => (
-        <a href={project.deployUrl} target="_blank" rel="noreferrer" className="project-img">
+      {projects.map((project, i) => (
+        <a href={project.deployUrl} target="_blank" rel="noreferrer" className="" key={i}>
           <div className="work-subtitle-container">
             <div className="img-text">
               <h3>{project.name}</h3>
