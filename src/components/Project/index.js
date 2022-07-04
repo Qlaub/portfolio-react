@@ -65,7 +65,7 @@ function Project() {
           </div>
           <div className="flex justify-between mt-1">
             <span className="text-white">{project.techUsed}</span> 
-            <a href={project.repoUrl} className="text-blue-200 hover:text-rose-200 transition ease-in-out duration-100">Repository Link</a>
+            <a href={project.repoUrl} target="_blank" rel="noreferrer" className="text-blue-200 hover:text-rose-200 transition ease-in-out duration-100">Repository Link</a>
           </div>
         </div>
       ))}

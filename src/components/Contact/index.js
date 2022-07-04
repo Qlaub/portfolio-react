@@ -1,6 +1,37 @@
 import React, { useState } from "react";
+import { validateEmail, capitalizeFirstLetter } from "../../utils/helpers";
 
 function Contact() {
+
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const { name, email, message } = formState;
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  function handleChange(e) {
+
+    if (e.target.name === "email") {
+      const isValid = validateEmail(e.target.value);
+      console.log(isValid);
+
+      if (!isValid) {
+        setErrorMessage('Your email is invalid.');
+      } else {
+        setErrorMessage('');
+      }
+    } else {
+      if (!e.target.value.length) {
+        setErrorMessage(`${capitalizeFirstLetter(e.target.name)} is required.`);
+      } else {
+        setErrorMessage('');
+      }
+    }
+
+    if (!errorMessage) {
+      setFormState({...formState, [e.target.name]: e.target.value });
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -11,17 +42,22 @@ function Contact() {
       <form onSubmit={handleSubmit}>
         <div className="w-56">
           <label htmlFor="name">Name: </label>
-          <input type="text" name="name" className="w-full border-slate-300 border" />
+          <input type="text" name="name" defaultValue={name} onBlur={handleChange} className="w-full border-slate-300 border" />
         </div>
         <div className="w-56">
           <label htmlFor="email">Email: </label>
-          <input type="text" name="email" className="w-full border-slate-300 border" />
+          <input type="text" name="email" defaultValue={email} onBlur={handleChange} className="w-full border-slate-300 border" />
         </div>
         <div className="w-full md:w-96">
           <label htmlFor="message">Message: </label>
-          <textarea className="w-full h-40 border-slate-300 border" />
+          <textarea name="message" defaultValue={message} onBlur={handleChange} className="w-full h-40 border-slate-300 border" />
         </div>
-        <button type="submit" className="bg-[#2A5042] text-white px-4 py-2 rounded-lg transition ease-in-out duration-75 hover:bg-[#152821]">Submit</button>
+        <div>
+          <button type="submit" className="bg-[#2A5042] text-white px-4 py-2 rounded-lg transition ease-in-out duration-75 hover:bg-[#152821]">Submit</button>
+          {errorMessage && (
+            <span className="ml-4 text-red-600">{errorMessage}</span>
+          )}
+        </div>
       </form>
     </section>
   )
