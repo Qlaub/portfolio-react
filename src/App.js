@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <Header setLinkSelected={setLinkSelected}></Header>
+      <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected}></Header>
       <main>
         {linkSelected === 'about' && <About></About>}
         {linkSelected === 'work' && <Portfolio></Portfolio>}
