@@ -6,7 +6,7 @@ function Resume() {
       <h2 className="mb-10 ml-2 md:ml-24 lg:mt-20 text-4xl font-bold tracking-wide text-[#474747]">
         Front-End Proficiencies
       </h2>
-      <ul className="text-lg ml-10 mb-10">
+      <ul className="text-lg ml-10 mb-10 list-disc">
         <li className="mb-4">HTML</li>
         <li className="mb-4">CSS</li>
         <li className="mb-4">JavaScript</li>
@@ -17,7 +17,7 @@ function Resume() {
       <h2 className="mb-10 ml-2 md:ml-24 lg:mt-20 text-4xl font-bold tracking-wide text-[#474747]">
         Back-End Proficiencies
       </h2>
-      <ul className="text-lg ml-10 mb-10">
+      <ul className="text-lg ml-10 mb-10 list-disc">
         <li className="mb-4">Node.js</li>
         <li className="mb-4">Express</li>
         <li className="mb-4">MongoDB</li>
