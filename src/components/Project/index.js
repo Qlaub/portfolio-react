@@ -1,62 +1,73 @@
 import React from "react";
+import potluck from '../../assets/images/potluck.jpg';
+import colorcoded from '../../assets/images/colorcoded.jpg';
+import codequiz from '../../assets/images/codequiz.jpg';
+import weather from '../../assets/images/weather.jpg';
+import scheduler from '../../assets/images/scheduler.jpg';
+import password from '../../assets/images/password.jpg';
 
 function Project() {
   const projects = [
     {
       name: "PotLuck",
-      techUsed: "MongoDB/Express/Node.js/Handlebars",
+      techUsed: "MongoDB/Express/Node.js",
       deployUrl: "https://potluck-inc.herokuapp.com/",
       repoUrl: "https://github.com/Qlaub/potluck",
-      imageName: "potluck"
+      imageSrc: potluck
     },
     {
       name: "Color Coded",
       techUsed: "JS/CSS/HTML",
       deployUrl: "https://qlaub.github.io/Color-Coded/",
       repoUrl: "https://github.com/Qlaub/Color-Coded",
-      imageName: "colorcoded"
+      imageSrc: colorcoded
     },
     {
       name: "Code Quiz",
       techUsed: "JS/CSS/HTML",
       deployUrl: "https://qlaub.github.io/Code-Quiz/",
       repoUrl: "https://github.com/Qlaub/Code-Quiz",
-      imageName: "codequiz"
+      imageSrc: codequiz
     },
     {
       name: "Weather Dashboard",
       techUsed: "JS/CSS/HTML",
       deployUrl: "https://qlaub.github.io/Weather-Dashboard/",
       repoUrl: "https://github.com/Qlaub/Weather-Dashboard",
-      imageName: "weather"
+      imageSrc: weather
     },
     {
       name: "Work Day Scheduler",
       techUsed: "JS/CSS/HTML",
       deployUrl: "https://qlaub.github.io/Work-Day-Scheduler/",
       repoUrl: "https://github.com/Qlaub/Work-Day-Scheduler",
-      imageName: "scheduler"
+      imageSrc: scheduler
     },
     {
       name: "Password Generator",
       techUsed: "JS/CSS/HTML",
       deployUrl: "https://qlaub.github.io/Password-Generator/",
       repoUrl: "https://github.com/Qlaub/Password-Generator",
-      imageName: "password"
+      imageSrc: password
     },
   ];
 
   return (
-    <div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 xl:gap-12">
       {projects.map((project, i) => (
-        <a href={project.deployUrl} target="_blank" rel="noreferrer" className="" key={i}>
-          <div className="work-subtitle-container">
-            <div className="img-text">
-              <h3>{project.name}</h3>
-              <p>{project.techUsed}</p>
-            </div>
+        <div key={i} className="mb-10 lg:mb-0 bg-[#3C685C] px-4 py-2 lg:p-4 rounded-xl">
+          <h2 className="font-semibold text-xl text-white mb-2 lg:hidden">{project.name}</h2>
+          <div className="relative">
+            <img src={project.imageSrc} alt={project.name} />
+            <a href={project.deployUrl} target="_blank" rel="noreferrer" className="grid place-items-center absolute inset-0 text-white text-4xl opacity-0 transition ease-in-out duration-500 hover:bg-black hover:opacity-70">
+              {project.name}
+            </a>
           </div>
-        </a>
+          <div className="flex justify-between mt-2">
+            <span className="text-white">{project.techUsed}</span> 
+            <a href={project.repoUrl} className="text-blue-200 hover:text-rose-200 transition ease-in-out duration-100">Repository Link</a>
+          </div>
+        </div>
       ))}
     </div>
   )
