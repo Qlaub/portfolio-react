@@ -55,15 +55,15 @@ function Project() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 xl:gap-12">
       {projects.map((project, i) => (
-        <div key={i} className="mb-10 lg:mb-0 bg-[#3C685C] px-4 py-2 lg:p-4 rounded-xl">
-          <h2 className="font-semibold text-xl text-white mb-2 lg:hidden">{project.name}</h2>
+        <div key={i} className="mb-10 lg:mb-0 bg-[#2A5042] px-2 py-1 lg:p-2 rounded-xl">
+          <h2 className="font-semibold text-xl text-white mb-1 lg:hidden">{project.name}</h2>
           <div className="relative">
             <img src={project.imageSrc} alt={project.name} />
             <a href={project.deployUrl} target="_blank" rel="noreferrer" className="grid place-items-center absolute inset-0 text-white text-4xl opacity-0 transition ease-in-out duration-500 hover:bg-black hover:opacity-70">
               {project.name}
             </a>
           </div>
-          <div className="flex justify-between mt-2">
+          <div className="flex justify-between mt-1">
             <span className="text-white">{project.techUsed}</span> 
             <a href={project.repoUrl} className="text-blue-200 hover:text-rose-200 transition ease-in-out duration-100">Repository Link</a>
           </div>
