@@ -4,13 +4,21 @@ import colorcoded from '../../assets/images/colorcoded.jpg';
 import codequiz from '../../assets/images/codequiz.jpg';
 import weather from '../../assets/images/weather.jpg';
 import scheduler from '../../assets/images/scheduler.jpg';
-import password from '../../assets/images/password.jpg';
+import roam from '../../assets/images/roam.jpg';
+// import password from '../../assets/images/password.jpg';
 
 function Project() {
   const projects = [
     {
+      name: "Roam",
+      techUsed: "MongoDB/Express/React/Node",
+      deployUrl: "https://pacific-depths-60618.herokuapp.com/",
+      repoUrl: "https://github.com/beatricekallen/roam",
+      imageSrc: roam
+    },
+    {
       name: "PotLuck",
-      techUsed: "MongoDB/Express/Node.js",
+      techUsed: "MongoDB/Express/Node",
       deployUrl: "https://potluck-inc.herokuapp.com/",
       repoUrl: "https://github.com/Qlaub/potluck",
       imageSrc: potluck
@@ -43,13 +51,13 @@ function Project() {
       repoUrl: "https://github.com/Qlaub/Work-Day-Scheduler",
       imageSrc: scheduler
     },
-    {
-      name: "Password Generator",
-      techUsed: "JS/CSS/HTML",
-      deployUrl: "https://qlaub.github.io/Password-Generator/",
-      repoUrl: "https://github.com/Qlaub/Password-Generator",
-      imageSrc: password
-    },
+    // {
+    //   name: "Password Generator",
+    //   techUsed: "JS/CSS/HTML",
+    //   deployUrl: "https://qlaub.github.io/Password-Generator/",
+    //   repoUrl: "https://github.com/Qlaub/Password-Generator",
+    //   imageSrc: password
+    // },
   ];
 
   return (
