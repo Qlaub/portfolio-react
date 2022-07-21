@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/portfolio-react/static/css/main.7b118294.css",
-    "main.js": "/portfolio-react/static/js/main.7b706e0e.js",
+    "main.js": "/portfolio-react/static/js/main.e751950f.js",
     "static/js/787.b9bd0c7a.chunk.js": "/portfolio-react/static/js/787.b9bd0c7a.chunk.js",
+    "static/media/roam.jpg": "/portfolio-react/static/media/roam.e424513b736444e7d741.jpg",
     "static/media/colorcoded.jpg": "/portfolio-react/static/media/colorcoded.7e3aaf3995f172bef61a.jpg",
     "static/media/weather.jpg": "/portfolio-react/static/media/weather.05091d136f5754ad146c.jpg",
     "static/media/potluck.jpg": "/portfolio-react/static/media/potluck.a4cfb0c4c63e60bb44f8.jpg",
     "static/media/scheduler.jpg": "/portfolio-react/static/media/scheduler.54c3bad888d56dec9554.jpg",
     "static/media/alex-face.png": "/portfolio-react/static/media/alex-face.017c8a659d7fa1a16925.png",
     "static/media/codequiz.jpg": "/portfolio-react/static/media/codequiz.74de22cae10a5b6d31a0.jpg",
-    "static/media/password.jpg": "/portfolio-react/static/media/password.29f6231d768fc0958fff.jpg",
     "index.html": "/portfolio-react/index.html",
     "main.7b118294.css.map": "/portfolio-react/static/css/main.7b118294.css.map",
-    "main.7b706e0e.js.map": "/portfolio-react/static/js/main.7b706e0e.js.map",
+    "main.e751950f.js.map": "/portfolio-react/static/js/main.e751950f.js.map",
     "787.b9bd0c7a.chunk.js.map": "/portfolio-react/static/js/787.b9bd0c7a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7b118294.css",
-    "static/js/main.7b706e0e.js"
+    "static/js/main.e751950f.js"
   ]
 }
