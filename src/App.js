@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
@@ -10,15 +11,19 @@ function App() {
   const [linkSelected, setLinkSelected] = useState('about');
 
   return (
-    <div>
-      <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected}></Header>
-      <main>
-        {linkSelected === 'about' && <About></About>}
-        {linkSelected === 'work' && <Portfolio></Portfolio>}
-        {linkSelected === 'contact' && <Contact></Contact>}
-        {linkSelected === 'resume' && <Resume></Resume>}
-      </main>
-      <Footer></Footer>
+    <div className="background-image p-0">
+      <Router>
+        <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected} />
+        <main>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/resume" element={<Resume />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
     </div>
   );
 }
