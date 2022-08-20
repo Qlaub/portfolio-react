@@ -20,7 +20,7 @@ const Carousel = () => {
   }
 
   return (
-    <section className='slider'>
+    <section className='carousel'>
       <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
       <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
       {slideData.map((slide, index) => {
@@ -30,7 +30,12 @@ const Carousel = () => {
             key={index}
           >
             {index === currentSlide && (
-              <img src={slide.image} alt='travel image' className='image' />
+              <>
+                <img src={slide.image} alt='travel image' className='image' />
+                <p>{slide.name}</p>
+                <p>{slide.deployUrl}</p>
+                <p>{slide.repoUrl}</p>
+              </>
             )}
           </div>
         );
