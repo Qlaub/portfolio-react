@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
+import { useSelector } from 'react-redux';
 
 // sets linkSelected useState on reload
 // helps determine proper background opacity
@@ -26,6 +27,7 @@ switch(window.location.pathname) {
 }
 
 function App() {
+  const { currentTab } = useSelector(state => state.currentTab)
   const [linkSelected, setLinkSelected] = useState(page);
 
   return (
