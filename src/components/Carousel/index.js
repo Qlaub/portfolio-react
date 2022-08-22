@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { slideData } from './data';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-import './index.css';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,18 +19,18 @@ const Carousel = () => {
   }
 
   return (
-    <section className='carousel'>
-      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+    <section className={'flex justify-center items-center relative lg:h-screen2'} >
+      <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none lg:left-12 lg:text-5xl' onClick={prevSlide} />
+      <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none lg:right-12 lg:text-5xl' onClick={nextSlide} />
       {slideData.map((slide, index) => {
         return (
           <div
-            className={index === currentSlide ? 'slide active' : 'slide'}
+            className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'opacity-0 ease-in-out duration-75'}
             key={index}
           >
             {index === currentSlide && (
               <>
-                <img src={slide.image} alt='travel image' className='image' />
+                <img src={slide.image} alt='travel image' className='rounded-md lg:h-screen2 ' />
                 <p>{slide.name}</p>
                 <p>{slide.deployUrl}</p>
                 <p>{slide.repoUrl}</p>
