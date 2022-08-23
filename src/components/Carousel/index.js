@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { slideData } from './data';
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -14,6 +14,11 @@ const Carousel = () => {
     setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
   };
 
+  const openTab = (link) => {
+    window.open(
+      link, "_blank");
+  }
+
   if (!Array.isArray(slideData) || slideData.length <= 0) {
     return null;
   }
@@ -25,19 +30,29 @@ const Carousel = () => {
       {slideData.map((slide, index) => {
         return (
           <div
-            className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'opacity-0 ease-in-out duration-75'}
+            className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'opacity-0 ease-in-out duration-200'}
             key={index}
           >
             {index === currentSlide && (
               <>
-                <img src={slide.image} alt='travel image' className='rounded-md lg:h-screen2 w-2/3' />
-                <div className='absolute top-0 right-0 text-right'>
-                  <h2 className='text-4xl m-2'>{slide.name}</h2>
-                  <div className='bg-white rounded p-4 mt-6'>
-                    <p>{slide.description}</p>
+                <img src={slide.image} alt='travel image' className='rounded-md lg:h-screen2 lg:w-2/3' />
+                <div className='absolute top-0 right-0 bottom-0 text-right w-2/5'>
+                  <div className='flex items-center h-full w-full'>
+                    <div className='flex flex-col lg:gap-16'>
+                      <div>
+                        <p>Project name:</p>
+                        <h2 className='text-4xl'>{slide.name}</h2>
+                      </div>
+                      <div className='bg-white rounded py-4 px-8 flex flex-col gap-4'>
+                        <p>{slide.description}</p>
+                        <p>Made with {slide.techUsed}.</p>
+                      </div>
+                      <div className='flex justify-end text-2xl gap-6'>
+                        <FaExternalLinkAlt className='cursor-pointer select-none' onClick={() => openTab(slide.deployUrl)} />
+                        <FaGithub className='cursor-pointer select-none' onClick={() => openTab(slide.repoUrl)} />
+                      </div>
+                    </div>
                   </div>
-                  <p className='mt-6'>{slide.deployUrl}</p>
-                  <p className='mt-6'>{slide.repoUrl}</p>
                 </div>
               </>
             )}

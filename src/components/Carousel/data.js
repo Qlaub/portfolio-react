@@ -12,7 +12,7 @@ export const slideData = [
     deployUrl: "https://pacific-depths-60618.herokuapp.com/",
     repoUrl: "https://github.com/beatricekallen/roam",
     image: roam,
-    description: "A travel application with an emphasis on sustainability"
+    description: "A travel application with an emphasis on sustainability."
   },
   {
     name: "PotLuck",
@@ -20,7 +20,7 @@ export const slideData = [
     deployUrl: "https://potluck-inc.herokuapp.com/",
     repoUrl: "https://github.com/Qlaub/potluck",
     image: potluck,
-    description: "A pay-it-forward ordering application that takes community to the next level"
+    description: "A pay-it-forward ordering application that takes community to the next level."
   },
   {
     name: "Color Coded",
@@ -28,7 +28,7 @@ export const slideData = [
     deployUrl: "https://qlaub.github.io/Color-Coded/",
     repoUrl: "https://github.com/Qlaub/Color-Coded",
     image: colorcoded,
-    description: "A website design tool to test color palettes and designs"
+    description: "A website design tool to test color palettes and designs."
   },
   {
     name: "Code Quiz",
@@ -36,7 +36,7 @@ export const slideData = [
     deployUrl: "https://qlaub.github.io/Code-Quiz/",
     repoUrl: "https://github.com/Qlaub/Code-Quiz",
     image: codequiz,
-    description: "A simple quiz website that tests you on HTML/CSS/JS questions"
+    description: "A simple quiz website that tests you on HTML/CSS/JS questions."
   },
   {
     name: "Weather Dashboard",
@@ -52,7 +52,7 @@ export const slideData = [
     deployUrl: "https://qlaub.github.io/Work-Day-Scheduler/",
     repoUrl: "https://github.com/Qlaub/Work-Day-Scheduler",
     image: scheduler,
-    description: "Plan your day with this simple day calendar"
+    description: "Help plan the events of your day with this simple day calendar."
   },
   // {
   //   name: "Password Generator",
