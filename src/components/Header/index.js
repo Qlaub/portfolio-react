@@ -1,5 +1,5 @@
-import React from "react";
 import Nav from "../Nav";
+import PropTypes from "prop-types";
 
 function Header({linkSelected, setLinkSelected}) {
   return (
@@ -9,5 +9,10 @@ function Header({linkSelected, setLinkSelected}) {
     </header>
   )
 }
+
+Header.propTypes = {
+  linkSelected: PropTypes.string.isRequired,
+  setLinkSelected: PropTypes.func.isRequired,
+};
 
 export default Header;

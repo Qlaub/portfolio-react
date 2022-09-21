@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import resumePDF from '../../assets/documents/resume.pdf';
+import PropTypes from "prop-types";
 
 function Nav({linkSelected, setLinkSelected}) {
   function clickHandler(section) {
@@ -55,5 +55,10 @@ function Nav({linkSelected, setLinkSelected}) {
 </nav>
   )
 }
+
+Nav.propTypes = {
+  linkSelected: PropTypes.string.isRequired,
+  setLinkSelected: PropTypes.func.isRequired,
+};
 
 export default Nav;

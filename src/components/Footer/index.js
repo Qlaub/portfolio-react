@@ -1,4 +1,3 @@
-import React from "react";
 import ghLogo from '../../assets/images/github.png';
 import liLogo from '../../assets/images/linkedin.png';
 import soLogo from '../../assets/images/stackoverflow.png';

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { validateEmail, capitalizeFirstLetter } from "../../utils/helpers";
 
 function Contact() {

@@ -11,12 +11,12 @@ module.exports = {
         tertiary: '#3F3D48',
         quaternary: '#f8fef0',
       },
-      height: theme => ({
+      height: {
         screen2: "50vh",
         screen3: "calc(100vh / 3)",
         screen4: "calc(100vh / 4)",
         screen5: "calc(100vh / 5)",
-      }),
+      },
     },
   },
   plugins: [],
