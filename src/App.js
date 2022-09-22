@@ -28,9 +28,24 @@ switch(window.location.pathname) {
 function App() {
   const [linkSelected, setLinkSelected] = useState(page);
 
+  let bgColor;
+  switch(linkSelected) {
+    case 'work':
+      bgColor = 'rgba(0, 0, 0, 0.9)';
+      break;
+    case 'about':
+      bgColor = 'rgba(255, 255, 255, 0.9)';
+      break;
+    case 'contact':
+      bgColor = 'rgba(255, 255, 255, 0.9)';
+      break;
+    default: 
+      bgColor = 'rgba(255, 255, 255, 0)';
+  }
+
   return (
     <div className="background-image p-0">
-      <div className='overlay' style={linkSelected === 'home' ? {backgroundColor: 'rgba(255, 255, 255, 0'} : {backgroundColor: 'rgba(255, 255, 255, 0.9'}}></div>
+      <div className='overlay' style={{ backgroundColor: `${bgColor}` }}></div>
       <div className="content">
         <Router>
           <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected} />
