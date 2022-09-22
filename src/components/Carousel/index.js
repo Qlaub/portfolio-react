@@ -27,8 +27,8 @@ const Carousel = () => {
     <section className='flex justify-center items-center relative h-screen2' >
 
       <div className='md:mx-8 mx-0 relative'>
-        <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none left-0 text-5xl' onClick={prevSlide} />
-        <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none md:-right-8 -right-2 text-5xl' onClick={nextSlide} />
+        <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-quaternary z-10 cursor-pointer select-none left-0 text-5xl' onClick={prevSlide} />
+        <FaArrowAltCircleRight className='absolute top-1/2 text-quaternary z-10 cursor-pointer select-none md:-right-8 -right-2 text-5xl' onClick={nextSlide} />
         {slideData.map((slide, index) => {
           return (
             <div
@@ -37,21 +37,21 @@ const Carousel = () => {
             >
               {index === currentSlide && (
                 <>
-                <img src={slide.image} alt='travel image' className='rounded-md h-screen2 w-2/3 object-cover object-left ml-16 lg:ml-24' />
+                <img src={slide.image} alt='travel image' className='rounded-md h-screen2 w-2/3 object-cover object-left ml-16 lg:ml-24 opacity-50' />
                 <div className='absolute top-0 right-16 bottom-0 text-right'>
                   <div className='flex items-center h-full '>
                     <div className='flex flex-col gap-8 items-end'>
                       <div className='w-96'>
-                        <p>Project name:</p>
-                        <h2 className='text-4xl'>{slide.name}</h2>
+                        <p className='text-secondary'>Project name:</p>
+                        <h2 className='text-5xl text-quaternary'>{slide.name}</h2>
                       </div>
-                      <div className='bg-white rounded py-4 px-8 flex flex-col gap-4 w-72'>
+                      <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-4 w-72'>
                         <p>{slide.description}</p>
                         <p>Made with {slide.techUsed}.</p>
                       </div>
                       <div className='flex justify-end text-2xl gap-6'>
-                        <FaExternalLinkAlt className='cursor-pointer select-none' onClick={() => openTab(slide.deployUrl)} />
-                        <FaGithub className='cursor-pointer select-none' onClick={() => openTab(slide.repoUrl)} />
+                        <FaExternalLinkAlt className='cursor-pointer select-none text-primary' onClick={() => openTab(slide.deployUrl)} />
+                        <FaGithub className='cursor-pointer select-none text-primary' onClick={() => openTab(slide.repoUrl)} />
                       </div>
                     </div>
                   </div>

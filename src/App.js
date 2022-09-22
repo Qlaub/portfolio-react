@@ -37,7 +37,7 @@ function App() {
       bgColor = 'rgba(255, 255, 255, 0.9)';
       break;
     case 'contact':
-      bgColor = 'rgba(255, 255, 255, 0.9)';
+      bgColor = 'rgba(255, 255, 255, 0.95)';
       break;
     default: 
       bgColor = 'rgba(255, 255, 255, 0)';
@@ -59,7 +59,7 @@ function App() {
               <Route path="/resume" element={<Resume />} />
             </Routes>
           </main>
-          <Footer />
+          <Footer linkSelected={linkSelected} />
         </Router>
       </div>
       
