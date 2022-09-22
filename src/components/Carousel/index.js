@@ -24,9 +24,7 @@ const Carousel = () => {
   }
 
   return (
-    <section className='flex justify-center items-center relative lg:h-screen2' >
-      <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none lg:left-12 lg:text-5xl' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none lg:right-12 lg:text-5xl' onClick={nextSlide} />
+    <section className='flex justify-center items-center relative h-screen2' >
       {slideData.map((slide, index) => {
         return (
           <div
@@ -34,16 +32,18 @@ const Carousel = () => {
             key={index}
           >
             {index === currentSlide && (
-              <>
-                <img src={slide.image} alt='travel image' className='rounded-md lg:h-screen2 lg:w-2/3' />
-                <div className='absolute top-0 right-0 bottom-0 text-right w-2/5'>
-                  <div className='flex items-center h-full w-full'>
-                    <div className='flex flex-col lg:gap-16'>
+              <div className='relative mx-8'>
+                <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none lg:left-8 left-0 text-5xl' onClick={prevSlide} />
+                <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none lg:right-0 right-0 text-5xl' onClick={nextSlide} />
+                <img src={slide.image} alt='travel image' className='rounded-md h-screen2 w-2/3 object-cover object-left ml-16 lg:ml-24' />
+                <div className='absolute top-0 right-16 bottom-0 text-right '>
+                  <div className='flex items-center h-full '>
+                    <div className='flex flex-col gap-8 items-end'>
                       <div>
                         <p>Project name:</p>
                         <h2 className='text-4xl'>{slide.name}</h2>
                       </div>
-                      <div className='bg-white rounded py-4 px-8 flex flex-col gap-4'>
+                      <div className='bg-white rounded py-4 px-8 flex flex-col gap-4 w-72'>
                         <p>{slide.description}</p>
                         <p>Made with {slide.techUsed}.</p>
                       </div>
@@ -54,7 +54,7 @@ const Carousel = () => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
           </div>
         );

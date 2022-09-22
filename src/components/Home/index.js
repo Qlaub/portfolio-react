@@ -10,7 +10,7 @@ function Home() {
           I&apos;m a web developer with a passion for details. I find joy in simple yet effective solutions and 
           strive to bring out the best in myself and those around me. My background and longevity as a concertizing 
           cellist for over 20 years has fostered a holistic approach in my pursuit of achievement.
-          <div className="text-lg w-max mx-auto pt-4">
+          <div className="text-lg w-max mx-auto pt-4 text-tertiary">
             <SiHeadspace />
           </div>
         </p>
