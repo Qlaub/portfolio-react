@@ -7,10 +7,12 @@ function Home() {
         <h2 className="text-3xl text-zinc-900">Hello! I&apos;m Alex Glaubitz.</h2>
         <h3 className="text-xl pb-4 text-zinc-600">I build web applications. </h3>
         <p className="text-lg text-zinc-800 max-w-xl border-t border-primary pt-4">
-          I&apos;m a web developer with a passion for details. I find joy in simple yet effective solutions and 
-          strive to bring out the best in myself and those around me. My background and longevity as a concertizing 
-          cellist for over 20 years has fostered a holistic approach in my pursuit of achievement.
-          <div className="text-lg w-max mx-auto pt-4 text-tertiary">
+          I&apos;m a web developer with a passion for details. I find joy in simple and effective solutions, and I 
+          strive to bring out the best in myself and those around me. My holistic approach to the pursuit of achievement
+          was fostered by my background as a concertizing cellist of over 20 years.
+          {/* My background and longevity as a concertizing 
+          cellist of over 20 years has fostered a holistic approach in a pursuit of achievement. */}
+          <div className="text-sm w-max mx-auto pt-4 text-tertiary">
             <SiHeadspace />
           </div>
         </p>
