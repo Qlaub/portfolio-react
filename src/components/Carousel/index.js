@@ -25,21 +25,23 @@ const Carousel = () => {
 
   return (
     <section className='flex justify-center items-center relative h-screen2' >
-      {slideData.map((slide, index) => {
-        return (
-          <div
-            className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'opacity-0 ease-in-out duration-200'}
-            key={index}
-          >
-            {index === currentSlide && (
-              <div className='relative mx-8'>
-                <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none lg:left-8 left-0 text-5xl' onClick={prevSlide} />
-                <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none lg:right-0 right-0 text-5xl' onClick={nextSlide} />
+
+      <div className='md:mx-8 mx-0 relative'>
+        <FaArrowAltCircleLeft className='right-arrow absolute top-1/2 text-black z-10 cursor-pointer select-none left-0 text-5xl' onClick={prevSlide} />
+        <FaArrowAltCircleRight className='absolute top-1/2 text-black z-10 cursor-pointer select-none md:-right-8 -right-2 text-5xl' onClick={nextSlide} />
+        {slideData.map((slide, index) => {
+          return (
+            <div
+              className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'display-none ease-in-out duration-200'}
+              key={index}
+            >
+              {index === currentSlide && (
+                <>
                 <img src={slide.image} alt='travel image' className='rounded-md h-screen2 w-2/3 object-cover object-left ml-16 lg:ml-24' />
-                <div className='absolute top-0 right-16 bottom-0 text-right '>
+                <div className='absolute top-0 right-16 bottom-0 text-right'>
                   <div className='flex items-center h-full '>
                     <div className='flex flex-col gap-8 items-end'>
-                      <div>
+                      <div className='w-96'>
                         <p>Project name:</p>
                         <h2 className='text-4xl'>{slide.name}</h2>
                       </div>
@@ -54,11 +56,12 @@ const Carousel = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+                </>
+              )}
+            </div>
+            )
+          })}
           </div>
-        );
-      })}
     </section>
   );
 };
