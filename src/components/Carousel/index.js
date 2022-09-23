@@ -37,15 +37,20 @@ const Carousel = () => {
             >
               {index === currentSlide && (
                 <>
-                <img src={slide.image} alt='travel image' className={`rounded-md h-screen2 w-full md:w-1/2 object-cover object-left ml-0 lg:mr-0 md:ml-28 opacity-10 md:opacity-10 lg:opacity-30 md:hover:opacity-100 ease-in-out duration-300`} />
+                <img 
+                  src={slide.image} 
+                  alt='travel image' 
+                  className={`rounded-md h-[430px] w-full md:w-1/2 object-cover object-left ml-0 lg:mr-0 md:ml-28 opacity-5 md:opacity-10 lg:opacity-30 md:hover:opacity-100 md:hover:cursor-pointer ease-in-out duration-300`}
+                  onClick={() => openTab(slide.deployUrl)}
+                />
                 <div className='absolute top-0 right-28 bottom-0 text-right'>
                   <div className='flex items-center h-full '>
-                    <div className='flex flex-col gap-8 items-end'>
+                    <div className='flex flex-col gap-14 items-end'>
                       <div className='w-96'>
                         <p className='text-secondary'>Project name:</p>
                         <h2 className='text-5xl text-quaternary'>{slide.name}</h2>
                       </div>
-                      <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-16 w-72'>
+                      <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-6 w-72'>
                         <p>{slide.description}</p>
                         <p>Made with {slide.techUsed}.</p>
                       </div>
