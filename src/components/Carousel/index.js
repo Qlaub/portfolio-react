@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 
 const Carousel = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [imageHover, setImageHover] = useState(false);
+  console.log(imageHover)
   const [show, setShow] = useState(false)
   const transitions = useTransition(show, {
     from: { opacity: 0 },
@@ -41,7 +43,6 @@ const Carousel = () => {
     const imagePaths = slideData.map((slide) => slide.image);
 
     cacheImages(imagePaths);
-    console.log(imagePaths);
   }, [])
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -81,45 +82,80 @@ const Carousel = () => {
                     >
                       {index === currentSlide && (
                         <>
-                        <img 
-                          src={slide.image} 
-                          alt='travel image' 
-                          className={`
-                            rounded-md 
-                            h-[430px] 
-                            w-full 
-                            md:w-1/2 
-                            object-cover 
-                            object-left 
-                            md:ml-28 
-                            opacity-5 
-                            md:opacity-10 
-                            lg:opacity-30 
-                            md:hover:opacity-100 
-                            md:hover:cursor-pointer 
-                            ease-in-out 
-                            duration-300`
-                          }
-                          onClick={() => openTab(slide.deployUrl)}
-                        />
-                        <div className='absolute top-0 right-28 bottom-0 text-right'>
-                          <div className='flex items-center h-full '>
-                            <div className='flex flex-col gap-14 items-end '>
-                              <div className='w-96'>
-                                <p className='text-secondary'>Project name:</p>
-                                <h2 className='text-5xl text-quaternary'>{slide.name}</h2>
-                              </div>
-                              <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-6 w-72'>
-                                <p>{slide.description}</p>
-                                <p>Made with {slide.techUsed}.</p>
-                              </div>
-                              <div className='flex justify-end text-2xl gap-6'>
-                                <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover shadow-2xl shadow-black' onClick={() => openTab(slide.deployUrl)} />
-                                <FaGithub className='cursor-pointer select-none text-primary text-3xl shadow-2xl shadow-black' onClick={() => openTab(slide.repoUrl)} />
+                          <div className='relative'>
+                            <div
+                            className={`
+                                absolute 
+                                top-0 
+                                left-28 
+                                bottom-0 
+                                right-0 
+                                w-1/2 
+                                lg:inline-block
+                                z-10
+                                lg:inline-block
+                                hidden
+                                hover:cursor-pointer 
+                              `} 
+                              onMouseEnter={() => setImageHover(true)}
+                              onMouseLeave={() => setImageHover(false)}
+                              onClick={() => openTab(slide.deployUrl)}
+                            />
+                            <div  
+                              className={`
+                                absolute 
+                                top-0 
+                                left-28 
+                                bottom-0 
+                                right-0 
+                                w-1/2 
+                                bg-gradient-to-l 
+                                from-tertiary 
+                                hidden 
+                                lg:inline-block
+                                ease-in-out duration-500 
+                                ${imageHover && 'translate-x-[342px]'}
+                              `} 
+                            />
+                            <img 
+                              src={slide.image} 
+                              alt='travel image' 
+                              className={`
+                                rounded-md 
+                                h-[430px] 
+                                w-full 
+                                md:w-1/2 
+                                object-cover 
+                                object-left 
+                                md:ml-28 
+                                opacity-5 
+                                md:opacity-10 
+                                lg:opacity-100
+                                md:hover:opacity-100 
+                                md:hover:cursor-pointer 
+                                ease-in-out 
+                                duration-300
+                              `}
+                            />
+                          </div>
+                          <div className='absolute top-0 right-28 bottom-0 text-right'>
+                            <div className='flex items-center h-full '>
+                              <div className='flex flex-col gap-14 items-end '>
+                                <div className='w-96'>
+                                  <p className='text-secondary'>Project name:</p>
+                                  <h2 className='text-5xl text-white'>{slide.name}</h2>
+                                </div>
+                                <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-6 w-72'>
+                                  <p>{slide.description}</p>
+                                  <p>Made with {slide.techUsed}.</p>
+                                </div>
+                                <div className='flex justify-end text-2xl gap-6'>
+                                  <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover shadow-2xl shadow-black' onClick={() => openTab(slide.deployUrl)} />
+                                  <FaGithub className='cursor-pointer select-none text-primary text-3xl shadow-2xl shadow-black' onClick={() => openTab(slide.repoUrl)} />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
                         </>
                       )}
                     </div>
