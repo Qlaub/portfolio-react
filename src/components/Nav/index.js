@@ -33,7 +33,7 @@ function Nav({linkSelected, setLinkSelected}) {
           text-lg 
           ${linkSelected === 'work' ? 'text-quaternary' : 'text-tertiary'} 
           tracking-wide 
-          transition 
+          transition-all 
           ease-in-out 
           duration-300 
           cursor-pointer 
@@ -52,7 +52,7 @@ function Nav({linkSelected, setLinkSelected}) {
           text-lg 
           ${linkSelected === 'work' ? 'text-quaternary' : 'text-tertiary'} 
           tracking-wide 
-          transition 
+          transition-all 
           ease-in-out 
           duration-300 
           cursor-pointer 
@@ -71,7 +71,7 @@ function Nav({linkSelected, setLinkSelected}) {
           text-lg 
           ${linkSelected === 'work' ? 'text-tertiary' : 'text-tertiary'} 
           tracking-wide 
-          transition 
+          transition-all
           ease-in-out 
           duration-300
           cursor-pointer 
@@ -90,7 +90,7 @@ function Nav({linkSelected, setLinkSelected}) {
           text-lg 
           ${linkSelected === 'work' ? 'text-quaternary' : 'text-tertiary'} 
           tracking-wide 
-          transition 
+          transition-all
           ease-in-out 
           duration-300 
           cursor-pointer 
@@ -113,7 +113,7 @@ function Nav({linkSelected, setLinkSelected}) {
         ${linkSelected === 'work' ? 'text-quaternary' : 'text-tertiary'} 
         ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
         tracking-wide 
-        transition 
+        transition-all
         ease-in-out 
         duration-300 
         hover:border-lighter 

@@ -15,7 +15,7 @@ function Header({linkSelected, setLinkSelected}) {
           ${linkSelected === 'home' ? 'bg-quaternary' : 'bg-tertiary'} 
           ${linkSelected === 'work' ? 'bg-black' : 'mr-px' }
           transition 
-          duration-500 
+          duration-300 
           ease-in-out 
           hover:text-lighter 
           hover:bg-accentText 

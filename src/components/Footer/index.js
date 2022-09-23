@@ -15,18 +15,15 @@ function Footer({ linkSelected }) {
       w-full 
       justify-center 
       md:w-fit 
-      ${linkSelected === 'work' && 'hidden'}
+      ${linkSelected === 'work' ? 'opacity-0' : 'opacity-70 md:opacity-100 hover:opacity-100' }
       md:bg-secondary
-      md:p-6 
       rounded-2xl 
       md:shadow-xl 
-      opacity-70 
       transition
       transition-opacity 
       ease-in-out 
-      duration-500 
-      hover:opacity-100 
-      md:opacity-100`}
+      duration-300 
+      `}
     >
       <ul className={`
         flex 
@@ -37,8 +34,8 @@ function Footer({ linkSelected }) {
         ${linkSelected === 'work' ? 'bg-black' : 'bg-secondary'}
         transition 
         ease-in-out 
-        duration-500 
-        md:p-0 
+        duration-300 
+        md:p-6 
         p-4 
         rounded-2xl 
         shadow-4xl 
