@@ -16,8 +16,10 @@ const Carousel = () => {
   })
 
   useEffect(() => {
-    setShow(true);
-  }, [])
+    if (!isLoading) {
+      setShow(true);
+    }
+  }, [isLoading])
 
   const cacheImages = async (pathArr) => {
     const promises = await pathArr.map((path) => {
