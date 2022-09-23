@@ -1,8 +1,13 @@
 import { useTransition, animated, config } from 'react-spring';
-import { useEffect, useState } from 'react';
-import { validateEmail, capitalizeFirstLetter } from "../../utils/helpers";
+import { useEffect, useState, useRef } from 'react';
+import { validateEmail } from "../../utils/helpers";
+import { RiMailSendLine } from 'react-icons/ri';
 
 function Contact() {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
   const [show, setShow] = useState(false)
   const transitions = useTransition(show, {
     from: { opacity: 0 },
@@ -15,64 +20,95 @@ function Contact() {
     setShow(true);
   }, [])
 
+  const windowSize = window.innerWidth;
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (windowSize < 768 && !mobile) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  }, [])
+
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const { name, email, message } = formState;
-
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState({ target: '', val: '' });
 
   function handleChange(e) {
+    setFormState({...formState, [e.target.name]: e.target.value})
+  }
 
-    if (e.target.name === "email") {
-      const isValid = validateEmail(e.target.value);
-      console.log(isValid);
+  function checkErrors() {
+    const validEmail = validateEmail(email);
 
-      if (!isValid) {
-        setErrorMessage('Your email is invalid.');
-      } else {
-        setErrorMessage('');
-      }
-    } else {
-      if (!e.target.value.length) {
-        setErrorMessage(`${capitalizeFirstLetter(e.target.name)} is required.`);
-      } else {
-        setErrorMessage('');
-      }
+    if (!name) {
+      setErrorMessage({ target: 'name', val: 'Please enter your name' });
+      nameRef.current.focus();
+      return true;
+    }
+    if (!validEmail) { 
+      setErrorMessage({ target: 'email', val: 'Please enter a valid email' });
+      emailRef.current.focus();
+      return true;
+    }
+    if (!message) {
+       setErrorMessage({ target: 'message', val: 'Please enter a message' });
+       messageRef.current.focus();
+       return true;
     }
 
-    if (!errorMessage) {
-      setFormState({...formState, [e.target.name]: e.target.value });
-    }
+    setErrorMessage({ target: '', val: ''});
+    return false;
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const errors = checkErrors();
+
+    if (errors) return;
   }
 
   return (
-    <section className="mx-2 mt-20 mb-24 md:ml-24 md:mr-48 lg:ml-32 lg:mr-96">
+    <section className="flex justify-center items-center mt-12">
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
-          <h2 className="gap-6 mb-20 md:gap-8 lg:gap-10 mb-10 ml-2 md:ml-24 lg:mb-20 lg:mt-20 text-5xl font-bold tracking-wide text-[#474747]">Contact Me</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="w-56">
-              <label htmlFor="name">Name: </label>
-              <input type="text" name="name" defaultValue={name} onBlur={handleChange} className="w-full border-slate-300 border" />
-            </div>
-            <div className="w-56">
-              <label htmlFor="email">Email: </label>
-              <input type="text" name="email" defaultValue={email} onBlur={handleChange} className="w-full border-slate-300 border" />
-            </div>
-            <div className="w-full md:w-96">
-              <label htmlFor="message">Message: </label>
-              <textarea name="message" defaultValue={message} onBlur={handleChange} className="w-full h-40 border-slate-300 border" />
+          <div className='bg-quaternary flex flex-col max-w-[800px] gap-2 p-4 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>
+            <div className='flex items-end gap-6 md:justify-start justify-center'>
+              <h2 className="text-6xl text-tertiary font-bold">Contact Me</h2>
+              <RiMailSendLine className='text-6xl text-primary'/>
             </div>
             <div>
-              <button type="submit" className="bg-[#2A5042] text-white px-4 py-2 rounded-lg transition ease-in-out duration-75 hover:bg-[#152821]">Submit</button>
-              {errorMessage && (
-                <span className="ml-4 text-red-600">{errorMessage}</span>
-              )}
+              <p className='text-zinc-600 md:text-left text-center'>&#40;check out my social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}!&#41;</p>
             </div>
-          </form>
+            <form onSubmit={handleSubmit} className="mt-4">
+              <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
+                <label htmlFor="name" className='text-lg text-zinc-600'>Name*</label>
+                <div className='relative'>
+                  <input type="text" name="name" defaultValue={name} ref={nameRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                  <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'name' && 'hidden'}`}>{errorMessage.val}</p>
+                </div>
+              </div>
+              <div className={`w-full md:w-1/2 ${errorMessage.target === 'email' && 'mb-3'}`}>
+                <label htmlFor="email" className='text-lg text-zinc-600'>Email*</label>
+                <div className='relative'>
+                  <input type="text" name="email" defaultValue={email} ref={emailRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'email' && 'hidden'}`}>{errorMessage.val}</p>
+                </div>
+              </div>
+              <div className={`w-full md:w-full ${errorMessage.target === 'message' && 'mb-3'}`}>
+                <label htmlFor="message" className='text-lg text-zinc-600'>Message*</label>
+                <div className='relative'>
+                  <textarea name="message" defaultValue={message} ref={messageRef} onChange={(e) => handleChange(e)} className="focus:outline-primary resize-none px-1 text-lg w-full h-32 border-slate-300 border rounded-sm mb-0 pb-0" />
+                  <p className={`absolute left-2 -bottom-4 font-xl text-red-500 ${errorMessage.target !== 'message' && 'hidden'}`}>{errorMessage.val}</p>
+                </div>
+              </div>
+              <div>
+                <button type="submit" className="tracking-wider bg-[#ffdca4] w-full md:w-fit rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 py-3 transition ease-in-out duration-75 hover:bg-secondary mt-3">Submit</button>
+              </div>
+            </form>
+          </div>
         </animated.div>
       ))}
     </section>

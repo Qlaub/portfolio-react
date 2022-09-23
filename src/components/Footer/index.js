@@ -16,7 +16,7 @@ function Footer({ linkSelected }) {
       justify-center 
       md:w-fit 
       ${linkSelected === 'work' ? 'opacity-0' : 'opacity-70 md:opacity-100 hover:opacity-100' }
-      ${linkSelected === 'about' && 'md:bg-quaternary'}
+      ${linkSelected === 'about' && 'md:bg-primary'}
       ${linkSelected === 'home' && 'md:bg-secondary'}
       ${linkSelected === 'contact' && 'md:bg-secondary'}
       rounded-2xl 
@@ -39,7 +39,7 @@ function Footer({ linkSelected }) {
         rounded-2xl 
         shadow-4xl 
         md:shadow-none
-        ${linkSelected === 'about' && 'bg-quaternary'}
+        ${linkSelected === 'about' && 'bg-primary'}
         ${linkSelected === 'home' && 'bg-secondary'}
         ${linkSelected === 'contact' && 'bg-secondary'}`}
       >

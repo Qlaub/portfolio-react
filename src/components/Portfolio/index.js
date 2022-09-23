@@ -14,7 +14,7 @@ function Portfolio() {
     flex
     w-screen
     justify-center
-    mt-20
+    mt-24
     "
     >
       <div className='max-w-[976px]'>

@@ -17,7 +17,7 @@ function About() {
   }, [])
 
   return (
-    <section className="flex justify-center items-center mt-16">
+    <section className="flex justify-center items-center mt-12">
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
           <div className='bg-secondary flex flex-col max-w-5xl gap-8 p-4 md:p-14 shadow-2xl shadow-tertiary'>

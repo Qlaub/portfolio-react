@@ -28,6 +28,7 @@ function Nav({linkSelected, setLinkSelected}) {
     className={`
       flex ml-6 rounded 
       ${linkSelected === 'work' ? 'bg-black border border-tertiary' : 'bg-quaternary'}
+      shadow-md
     `}
   >
     <Link to="/" className=""> 

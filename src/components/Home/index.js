@@ -17,7 +17,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="flex justify-center items-center h-96 mt-16">
+    <div className="flex justify-center items-center h-96 mt-12">
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
           <div className="
