@@ -31,13 +31,13 @@ function App() {
   let bgColor;
   switch(linkSelected) {
     case 'work':
-      bgColor = 'rgba(0, 0, 0, 0.9)';
+      bgColor = 'rgba(0, 0, 0, 0.92)';
       break;
     case 'about':
-      bgColor = 'rgba(255, 255, 255, 0.9)';
+      bgColor = 'rgba(255, 255, 255, 0.92)';
       break;
     case 'contact':
-      bgColor = 'rgba(255, 255, 255, 0.95)';
+      bgColor = 'rgba(255, 255, 255, 0.90)';
       break;
     default: 
       bgColor = 'rgba(255, 255, 255, 0)';

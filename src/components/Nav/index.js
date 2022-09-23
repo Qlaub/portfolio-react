@@ -24,7 +24,7 @@ function Nav({linkSelected, setLinkSelected}) {
 
   return (
 <nav>
-  <ul className={`flex ml-6 rounded ${linkSelected === 'work' ? 'bg-tertiary' : 'bg-quaternary'}`}>
+  <ul className={`flex ml-6 rounded ${linkSelected === 'work' ? 'bg-black border border-tertiary' : 'bg-quaternary'}`}>
     <Link to="/" className=""> 
       <li className=
         {`
@@ -35,7 +35,7 @@ function Nav({linkSelected, setLinkSelected}) {
           tracking-wide 
           transition 
           ease-in-out 
-          duration-75 
+          duration-300 
           cursor-pointer 
           rounded-sm 
           ${linkSelected === 'home' ? 'bg-secondary' : 'hover:bg-primary'}
@@ -54,7 +54,7 @@ function Nav({linkSelected, setLinkSelected}) {
           tracking-wide 
           transition 
           ease-in-out 
-          duration-75 
+          duration-300 
           cursor-pointer 
           rounded-sm 
           ${linkSelected === 'about' ? 'bg-secondary' : 'hover:bg-primary'}
@@ -73,7 +73,7 @@ function Nav({linkSelected, setLinkSelected}) {
           tracking-wide 
           transition 
           ease-in-out 
-          duration-75 
+          duration-300
           cursor-pointer 
           rounded-sm 
           ${linkSelected === 'work' ? 'bg-quaternary' : 'hover:bg-primary'}
@@ -92,7 +92,7 @@ function Nav({linkSelected, setLinkSelected}) {
           tracking-wide 
           transition 
           ease-in-out 
-          duration-75 
+          duration-300 
           cursor-pointer 
           rounded-sm 
           ${linkSelected === 'contact' ? 'bg-secondary' : 'hover:bg-primary'}
@@ -115,7 +115,7 @@ function Nav({linkSelected, setLinkSelected}) {
         tracking-wide 
         transition 
         ease-in-out 
-        duration-75 
+        duration-300 
         hover:border-lighter 
         cursor-pointer 
         rounded-sm 

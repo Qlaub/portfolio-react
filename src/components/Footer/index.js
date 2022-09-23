@@ -4,6 +4,7 @@ import soLogo from '../../assets/images/stackoverflow.png';
 import PropTypes from "prop-types";
 
 function Footer({ linkSelected }) {
+
   return (
     <footer className={`
       flex 
@@ -14,12 +15,14 @@ function Footer({ linkSelected }) {
       w-full 
       justify-center 
       md:w-fit 
-      ${linkSelected === 'work' ? 'md:bg-tertiary' : 'md:bg-secondary'}
+      ${linkSelected === 'work' && 'hidden'}
+      md:bg-secondary
       md:p-6 
       rounded-2xl 
       md:shadow-xl 
       opacity-70 
-      transition 
+      transition
+      transition-opacity 
       ease-in-out 
       duration-500 
       hover:opacity-100 
@@ -31,7 +34,7 @@ function Footer({ linkSelected }) {
         md:flex-col 
         gap-10 
         md:gap-6 
-        ${linkSelected === 'work' ? 'bg-tertiary' : 'bg-secondary'}
+        ${linkSelected === 'work' ? 'bg-black' : 'bg-secondary'}
         transition 
         ease-in-out 
         duration-500 

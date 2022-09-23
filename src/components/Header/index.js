@@ -13,6 +13,7 @@ function Header({linkSelected, setLinkSelected}) {
           font-semibold 
           tracking-widest 
           ${linkSelected === 'home' ? 'bg-quaternary' : 'bg-tertiary'} 
+          ${linkSelected === 'work' ? 'bg-black' : 'mr-px' }
           transition 
           duration-500 
           ease-in-out 
