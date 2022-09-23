@@ -17,7 +17,7 @@ function Portfolio() {
     mt-20
     "
     >
-      <div>
+      <div className='max-w-[976px]'>
         <Project></Project>
       </div>
     </div>
