@@ -34,7 +34,7 @@ function App() {
       bgColor = 'rgba(0, 0, 0, 0.95)';
       break;
     case 'about':
-      bgColor = 'rgba(255, 255, 255, 0.92)';
+      bgColor = 'rgba(254, 216, 154, 0.8)';
       break;
     case 'contact':
       bgColor = 'rgba(255, 255, 255, 0.90)';

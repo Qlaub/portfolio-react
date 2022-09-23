@@ -24,7 +24,12 @@ function Nav({linkSelected, setLinkSelected}) {
 
   return (
 <nav>
-  <ul className={`flex ml-6 rounded ${linkSelected === 'work' ? 'bg-black border border-tertiary' : 'bg-quaternary'}`}>
+  <ul 
+    className={`
+      flex ml-6 rounded 
+      ${linkSelected === 'work' ? 'bg-black border border-tertiary' : 'bg-quaternary'}
+    `}
+  >
     <Link to="/" className=""> 
       <li className=
         {`
@@ -39,6 +44,7 @@ function Nav({linkSelected, setLinkSelected}) {
           cursor-pointer 
           rounded-sm 
           ${linkSelected === 'home' ? 'bg-secondary' : 'hover:bg-primary'}
+          ${linkSelected === 'about' && 'hover:bg-secondary'}
           ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
         `} 
         onClick={() => clickHandler('home')}>Home
@@ -57,7 +63,7 @@ function Nav({linkSelected, setLinkSelected}) {
           duration-300 
           cursor-pointer 
           rounded-sm 
-          ${linkSelected === 'about' ? 'bg-secondary' : 'hover:bg-primary'}
+          ${linkSelected === 'about' ? 'bg-primary' : 'hover:bg-primary'}
           ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
         `} 
         onClick={() => clickHandler('about')}>About
@@ -76,6 +82,7 @@ function Nav({linkSelected, setLinkSelected}) {
           duration-300
           cursor-pointer 
           rounded-sm 
+          ${linkSelected === 'about' && 'hover:bg-secondary'}
           ${linkSelected === 'work' ? 'bg-quaternary' : 'hover:bg-primary'}
           ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
         `}  
@@ -95,6 +102,7 @@ function Nav({linkSelected, setLinkSelected}) {
           duration-300 
           cursor-pointer 
           rounded-sm 
+          ${linkSelected === 'about' && 'hover:bg-secondary'}
           ${linkSelected === 'contact' ? 'bg-secondary' : 'hover:bg-primary'}
           ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
 
@@ -112,6 +120,7 @@ function Nav({linkSelected, setLinkSelected}) {
         text-lg 
         ${linkSelected === 'work' ? 'text-quaternary' : 'text-tertiary'} 
         ${linkSelected === 'work' && 'hover:bg-quaternary hover:text-tertiary'}
+        ${linkSelected === 'about' && 'hover:bg-secondary'}
         tracking-wide 
         transition-all
         ease-in-out 

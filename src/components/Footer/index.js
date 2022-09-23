@@ -16,11 +16,11 @@ function Footer({ linkSelected }) {
       justify-center 
       md:w-fit 
       ${linkSelected === 'work' ? 'opacity-0' : 'opacity-70 md:opacity-100 hover:opacity-100' }
-      md:bg-secondary
+      ${linkSelected === 'about' && 'md:bg-quaternary'}
+      ${linkSelected === 'home' && 'md:bg-secondary'}
+      ${linkSelected === 'contact' && 'md:bg-secondary'}
       rounded-2xl 
       md:shadow-xl 
-      transition
-      transition-opacity 
       ease-in-out 
       duration-300 
       `}
@@ -31,7 +31,6 @@ function Footer({ linkSelected }) {
         md:flex-col 
         gap-10 
         md:gap-6 
-        ${linkSelected === 'work' ? 'bg-black' : 'bg-secondary'}
         transition 
         ease-in-out 
         duration-300 
@@ -39,7 +38,10 @@ function Footer({ linkSelected }) {
         p-4 
         rounded-2xl 
         shadow-4xl 
-        md:shadow-none`}
+        md:shadow-none
+        ${linkSelected === 'about' && 'bg-quaternary'}
+        ${linkSelected === 'home' && 'bg-secondary'}
+        ${linkSelected === 'contact' && 'bg-secondary'}`}
       >
         <li><a href="https://github.com/Qlaub" target="_blank" rel="noreferrer"><img src={ghLogo} alt="GitHub" width="50" /></a></li>
         <li><a href="https://www.linkedin.com/in/alex-glaubitz-6b5130221/" target="_blank" rel="noreferrer"><img src={liLogo} alt="LinkedIn" width="50" /></a></li>
