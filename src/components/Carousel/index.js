@@ -32,7 +32,7 @@ const Carousel = () => {
         {slideData.map((slide, index) => {
           return (
             <div
-              className={index === currentSlide ? 'opacity-100 duration-200 scale-105' : 'display-none ease-in-out duration-200'}
+              className={index === currentSlide ? 'opacity-100 duration-200 ' : 'display-none ease-in-out duration-200 translate-x-16'}
               key={index}
             >
               {index === currentSlide && (
@@ -55,7 +55,7 @@ const Carousel = () => {
                         <p>Made with {slide.techUsed}.</p>
                       </div>
                       <div className='flex justify-end text-2xl gap-6'>
-                        <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl' onClick={() => openTab(slide.deployUrl)} />
+                        <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover' onClick={() => openTab(slide.deployUrl)} />
                         <FaGithub className='cursor-pointer select-none text-primary text-3xl' onClick={() => openTab(slide.repoUrl)} />
                       </div>
                     </div>
