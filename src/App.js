@@ -40,7 +40,7 @@ function App() {
       bgColor = 'rgba(255, 255, 255, 0.90)';
       break;
     default: 
-      bgColor = 'rgba(255, 255, 255, 0)';
+      bgColor = 'rgba(159, 218, 234, 0.8)';
   }
 
   return (

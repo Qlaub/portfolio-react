@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Arvo&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?Roboto:wght@900&family=Amatic+SC:wght@700&family=Arvo&family=Work+Sans&display=swap');
 
 body {
   background-color: #f8fef0
@@ -38,7 +38,9 @@ h1 {
 }
 
 h2, h3, h4 {
-  font-family: 'Arvo', serif;
+  /* font-family: 'Arvo', serif; */
+  /* font-family: 'Work Sans', sans-serif; */
+  font-family: 'Roboto', sans-serif;
 }
 
 p, a {

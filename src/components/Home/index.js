@@ -1,6 +1,6 @@
-import { SiHeadspace } from "react-icons/si"
 import { useTransition, animated, config } from 'react-spring';
 import { useEffect, useState } from 'react';
+import { BiCodeCurly } from 'react-icons/bi';
 
 function Home() {
   const [show, setShow] = useState(false)
@@ -21,31 +21,34 @@ function Home() {
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
           <div className="
-            px-10 
-            pt-8
-            pb-8  
-            rounded-3xl 
+            md:p-14
+            p-4
+            mx-2
+            md:m-0
             h-fit 
             flex 
             flex-col 
-            items-center 
+            items-start 
             shadow-2xl
-            bg-quaternary
-            border-4
-            border-secondary"
+            shadow-tertiary
+            relative
+            max-w-5xl
+            bg-[#7dcde3]"
           >
-            <h2 className="text-3xl text-zinc-900">Hello! I&apos;m Alex Glaubitz.</h2>
-            <h3 className="text-xl pb-8 text-zinc-600">I build web applications. </h3>
-            <div className="text-primary hover:text-secondary transition-in-out duration-300">
-              <SiHeadspace />
+            <h2 className="text-6xl text-tertiary font-bold z-10 pb-1">Hey there, I&apos;m Alex Glaubitz</h2>
+            <h3 className="text-4xl font-bold text-quaternary z-10">I build web applications</h3>
+            <div className='flex pt-8 w-full'>
+              <p className="text-lg text-tertiary z-10 max-w-xl">
+                I&apos;m a web developer with a passion for detail. I find joy in simple and effective solutions, and I 
+                strive to bring out the best in myself and those around me. My holistic approach to the pursuit of achievement
+                was fostered by my background as a concertizing cellist of over 20 years.
+                {/* My background and longevity as a concertizing 
+                cellist of over 20 years has fostered a holistic approach in a pursuit of achievement. */}
+              </p>
+              <div className='md:flex items-center justify-center w-full hidden'>
+                <BiCodeCurly className='text-9xl text-primary' />
+              </div>
             </div>
-            <p className="text-lg text-zinc-800 max-w-xl pt-8 max-w-lg">
-              I&apos;m a web developer with a passion for detail. I find joy in simple and effective solutions, and I 
-              strive to bring out the best in myself and those around me. My holistic approach to the pursuit of achievement
-              was fostered by my background as a concertizing cellist of over 20 years.
-              {/* My background and longevity as a concertizing 
-              cellist of over 20 years has fostered a holistic approach in a pursuit of achievement. */}
-            </p>
           </div>
         </animated.div>
       ))}
