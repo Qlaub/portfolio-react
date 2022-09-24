@@ -6,7 +6,7 @@ A website serving as a central place for my bio, applications, contact informati
 ## Link
 [Click here](https://qlaub.github.io/portfolio-react/) to view the website
 
-<img width="1512" alt="Website Screenshot" src="https://user-images.githubusercontent.com/89796902/191873447-1975a5a1-3a6e-4166-b92d-afb444e49118.png">
+<img width="1511" alt="Website Screenshot" src="https://user-images.githubusercontent.com/89796902/192083364-33399db6-5ddf-43aa-9282-20d2621a7fbb.png">
 
 ## Developed using React, using the following npm packages:
 * React Toastify for notifications
