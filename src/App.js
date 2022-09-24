@@ -31,7 +31,7 @@ function App() {
   let bgColor;
   switch(linkSelected) {
     case 'work':
-      bgColor = 'rgba(0, 0, 0, 0.95)';
+      bgColor = 'rgba(0, 0, 0, 0.90)';
       break;
     case 'about':
       bgColor = 'rgba(254, 216, 154, 0.8)';

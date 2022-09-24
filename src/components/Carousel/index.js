@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 const Carousel = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [imageHover, setImageHover] = useState(false);
-  console.log(imageHover)
   const [show, setShow] = useState(false)
   const transitions = useTransition(show, {
     from: { opacity: 0 },
@@ -65,13 +64,22 @@ const Carousel = () => {
     return null;
   }
 
+  const slideCircles = () => {
+    const circles = [];
+    for (let num = 0; num < slideData.length; num++) {
+      circles.push(<div className={`${currentSlide === num ? 'w-3 h-3' : 'w-2 h-2'} rounded-full border border-quaternary ${currentSlide === num ? 'bg-quaternary' : 'bg-tertiary'}`}></div>);
+    }
+    return <div className='flex gap-3 items-center'>{circles}</div>
+  }
+
   return (
     <section className='flex justify-center items-center relative h-screen2' >
       {!isLoading &&
         <div>
           {transitions((styles, item) => item && (
             <animated.div style={styles}>
-              <div className='md:mx-8 mx-0 relative bg-tertiary py-4 md:py-10'>
+              <div className='md:mx-8 mx-0 relative bg-tertiary py-4 md:py-12 shadow-2xl shadow-black'>
+                  <div className='absolute left-0 right-0 bottom-4 flex justify-center'>{slideCircles()}</div>
                 <MdNavigateBefore className='absolute top-1/2 text-quaternary z-10 cursor-pointer select-none left-0 md:-left-4 top-[180px] md:top-[200px] text-9xl' onClick={prevSlide} />
                 <MdNavigateNext className='absolute top-1/2 text-quaternary z-10 cursor-pointer select-none right-0 md:-right-4 top-[180px] md:top-[200px] text-9xl' onClick={nextSlide} />
                 {slideData.map((slide, index) => {
@@ -143,7 +151,7 @@ const Carousel = () => {
                               <div className='flex flex-col gap-14 items-end '>
                                 <div className='w-96'>
                                   <p className='text-secondary'>Project name:</p>
-                                  <h2 className='text-5xl text-white'>{slide.name}</h2>
+                                  <h2 className='text-5xl text-quaternary font-bold'>{slide.name}</h2>
                                 </div>
                                 <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-6 w-72'>
                                   <p>{slide.description}</p>

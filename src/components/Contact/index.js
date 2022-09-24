@@ -61,8 +61,17 @@ function Contact() {
     });
   }
 
+  function clearErrors() {
+    if (!name) return;
+    if (!validateEmail(email)) return;
+    if (!message) return;
+
+    return setErrorMessage({ target: '', val: ''});
+  }
+
   function handleChange(e) {
-    setFormState({...formState, [e.target.name]: e.target.value})
+    setFormState({...formState, [e.target.name]: e.target.value});
+    clearErrors();
   }
 
   function checkErrors() {
@@ -113,33 +122,33 @@ function Contact() {
     <section className="flex justify-center items-center mt-12">
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
-          <div className='bg-quaternary flex flex-col max-w-[800px] gap-2 p-4 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>
-            <div className='flex items-end gap-6 md:justify-start justify-center'>
+          <div className='bg-quaternary flex flex-col max-w-[800px] gap-2 p-8 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>
+            <div className='flex items-end gap-6 md:justify-start justify-center md:min-w-[515px]'>
               <h2 className="text-6xl text-tertiary font-bold">Contact Me</h2>
               <RiMailSendLine className='text-6xl text-primary'/>
             </div>
-            <div>
-              <p className='text-zinc-600 md:text-left text-center'>&#40;check out my social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}!&#41;</p>
+            <div className='hidden md:inline-block'>
+              <p className='text-zinc-600 md:text-left text-center'>&#40;social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}!&#41;</p>
             </div>
             <form onSubmit={handleSubmit} ref={formRef} className="mt-4">
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
                 <label htmlFor="name" className='text-lg text-zinc-600'>Name*</label>
                 <div className='relative'>
-                  <input type="text" name="name" defaultValue={name} value={name} ref={nameRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                  <input type="text" name="name" value={name} ref={nameRef} onChange={(e) => handleChange(e)} className={`focus:outline-primary px-1 text-lg h-8 w-full ${errorMessage.target === 'name' ? 'focus:outline-red-300 border-red-300' : 'focus:outline-primary' } border rounded-sm mb-2`} />
                   <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'name' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'email' && 'mb-3'}`}>
                 <label htmlFor="email" className='text-lg text-zinc-600'>Email*</label>
                 <div className='relative'>
-                  <input type="text" name="email" defaultValue={email} value={email} ref={emailRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                  <input type="text" name="email" value={email} ref={emailRef} onChange={(e) => handleChange(e)} className={`focus:outline-primary px-1 text-lg h-8 w-full ${errorMessage.target === 'email' ? 'focus:outline-red-300 border-red-300' : 'focus:outline-primary' } border rounded-sm mb-2`} />
                 <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'email' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
               <div className={`w-full md:w-full ${errorMessage.target === 'message' && 'mb-3'}`}>
                 <label htmlFor="message" className='text-lg text-zinc-600'>Message*</label>
                 <div className='relative'>
-                  <textarea name="message" defaultValue={message} value={message} ref={messageRef} onChange={(e) => handleChange(e)} className="focus:outline-primary resize-none px-1 text-lg w-full h-32 border-slate-300 border rounded-sm mb-0 pb-0" />
+                  <textarea name="message" value={message} ref={messageRef} onChange={(e) => handleChange(e)} className={`${errorMessage.target === 'message' ? 'focus:outline-red-300 border-red-300' : 'focus:outline-primary' } border-slate-300 border resize-none px-1 text-lg w-full h-32 rounded-sm mb-0 pb-0`} />
                   <p className={`absolute left-2 -bottom-4 font-xl text-red-500 ${errorMessage.target !== 'message' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
