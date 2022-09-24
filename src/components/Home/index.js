@@ -41,7 +41,7 @@ function Home() {
               <p className="text-lg text-tertiary z-10 max-w-xl">
                 I&apos;m a web developer with a passion for detail. I find joy in simple and effective solutions, and I 
                 strive to bring out the best in myself and those around me. My holistic approach to the pursuit of achievement
-                was fostered by my background as a concertizing cellist of over 20 years.
+                was fostered by my background as a concertizing cellist for over 20 years.
                 {/* My background and longevity as a concertizing 
                 cellist of over 20 years has fostered a holistic approach in a pursuit of achievement. */}
               </p>

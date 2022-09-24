@@ -2,11 +2,13 @@ import { useTransition, animated, config } from 'react-spring';
 import { useEffect, useState, useRef } from 'react';
 import { validateEmail } from "../../utils/helpers";
 import { RiMailSendLine } from 'react-icons/ri';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  const formRef = useRef();
 
   const [show, setShow] = useState(false)
   const transitions = useTransition(show, {
@@ -67,7 +69,16 @@ function Contact() {
 
     const errors = checkErrors();
 
+    console.log(errors);
+
     if (errors) return;
+
+    emailjs.sendForm('portfolio_service', 'contact_form', formRef.current, 'EdN6ktJzo4SGJL4tX')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   }
 
   return (
@@ -82,7 +93,7 @@ function Contact() {
             <div>
               <p className='text-zinc-600 md:text-left text-center'>&#40;check out my social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}!&#41;</p>
             </div>
-            <form onSubmit={handleSubmit} className="mt-4">
+            <form onSubmit={handleSubmit} ref={formRef} className="mt-4">
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
                 <label htmlFor="name" className='text-lg text-zinc-600'>Name*</label>
                 <div className='relative'>

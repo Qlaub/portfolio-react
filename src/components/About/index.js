@@ -28,7 +28,7 @@ function About() {
               </div>
             </div>
             <div className="leading-7 text-lg text-tertiary">
-              <p className="">
+              <p className="max-w-3xl">
                 I&apos;m an inquisitive and passionate full stack web developer who brings experience with JavaScript/TypeScript, 
                 the MERN and SERN stacks, and Git. After graduating the UNC-Chapel Hill coding boot camp certificate program in
                 August of this year, I now work as a web developer with a startup company. I&apos;m looking for growth 
