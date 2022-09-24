@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import resumePDF from '../../assets/documents/resume.pdf';
 import PropTypes from "prop-types";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Nav({linkSelected, setLinkSelected}) {
+  const notify = () => toast.success('Resume Saved', {
+    position: "top-right",
+  });
+
   function clickHandler(section) {
     switch(section) {
       case 'about':
@@ -131,15 +137,12 @@ function Nav({linkSelected, setLinkSelected}) {
         rounded-sm 
         hover:bg-primary
       `}
+      onClick={notify}
     >
       Resume
     </a>
-    {/* <Link to="/resume"> 
-      <li className={`py-2 px-8 text-lg text-tertiary tracking-wide transition ease-in-out duration-75 border border-transparent hover:border-lighter cursor-pointer rounded-sm ${linkSelected === 'resume' && 'bg-secondary'}`}  
-        onClick={() => clickHandler('resume')}>Resume
-      </li>
-    </Link> */}
   </ul>
+  <ToastContainer />
 </nav>
   )
 }

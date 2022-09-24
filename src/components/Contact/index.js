@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from 'react';
 import { validateEmail } from "../../utils/helpers";
 import { RiMailSendLine } from 'react-icons/ri';
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Contact() {
   const nameRef = useRef();
@@ -36,6 +38,28 @@ function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const { name, email, message } = formState;
   const [errorMessage, setErrorMessage] = useState({ target: '', val: '' });
+
+  const notify = (status) => {
+    if (status === 'success') return toast.success('Email sent, thank you!', {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    
+    return toast.error('Unexpected error...', {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   function handleChange(e) {
     setFormState({...formState, [e.target.name]: e.target.value})
@@ -75,9 +99,13 @@ function Contact() {
 
     emailjs.sendForm('portfolio_service', 'contact_form', formRef.current, 'EdN6ktJzo4SGJL4tX')
       .then((result) => {
-          console.log(result.text);
+        if (result.text === 'OK') {
+          notify('success');
+          return setFormState({ name: '', email: '', message: '' });
+        }
       }, (error) => {
-          console.log(error.text);
+        console.log(error);
+        notify('')
       });
   }
 
@@ -97,21 +125,21 @@ function Contact() {
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
                 <label htmlFor="name" className='text-lg text-zinc-600'>Name*</label>
                 <div className='relative'>
-                  <input type="text" name="name" defaultValue={name} ref={nameRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                  <input type="text" name="name" defaultValue={name} value={name} ref={nameRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
                   <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'name' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'email' && 'mb-3'}`}>
                 <label htmlFor="email" className='text-lg text-zinc-600'>Email*</label>
                 <div className='relative'>
-                  <input type="text" name="email" defaultValue={email} ref={emailRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
+                  <input type="text" name="email" defaultValue={email} value={email} ref={emailRef} onChange={(e) => handleChange(e)} className="focus:outline-primary px-1 text-lg h-8 w-full border-slate-300 border rounded-sm mb-2" />
                 <p className={`absolute left-2 -bottom-3 font-xl text-red-500 ${errorMessage.target !== 'email' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
               <div className={`w-full md:w-full ${errorMessage.target === 'message' && 'mb-3'}`}>
                 <label htmlFor="message" className='text-lg text-zinc-600'>Message*</label>
                 <div className='relative'>
-                  <textarea name="message" defaultValue={message} ref={messageRef} onChange={(e) => handleChange(e)} className="focus:outline-primary resize-none px-1 text-lg w-full h-32 border-slate-300 border rounded-sm mb-0 pb-0" />
+                  <textarea name="message" defaultValue={message} value={message} ref={messageRef} onChange={(e) => handleChange(e)} className="focus:outline-primary resize-none px-1 text-lg w-full h-32 border-slate-300 border rounded-sm mb-0 pb-0" />
                   <p className={`absolute left-2 -bottom-4 font-xl text-red-500 ${errorMessage.target !== 'message' && 'hidden'}`}>{errorMessage.val}</p>
                 </div>
               </div>
@@ -119,6 +147,7 @@ function Contact() {
                 <button type="submit" className="tracking-wider bg-[#ffdca4] w-full md:w-fit rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 py-3 transition ease-in-out duration-75 hover:bg-secondary mt-3">Submit</button>
               </div>
             </form>
+            <ToastContainer />
           </div>
         </animated.div>
       ))}
