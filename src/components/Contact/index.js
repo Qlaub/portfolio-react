@@ -153,7 +153,18 @@ function Contact() {
                 </div>
               </div>
               <div>
-                <button type="submit" className="tracking-wider bg-[#ffdca4] w-full md:w-fit rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 py-3 transition ease-in-out duration-75 hover:bg-secondary mt-3">Submit</button>
+                <button type="submit" className="tracking-wider bg-[#ffdca4] w-full md:w-fit rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 py-3 transition ease-in-out duration-75 hover:bg-[#ffce80] active:bg-secondary mt-3">
+                  Submit
+                  {/* <div className="inline-block w-8 h-8 
+                    border-4
+                    border-t-quaternary
+                    border-l-tertiary
+                    border-b-tertiary
+                    border-r-tertiary
+                    rounded-full 
+                    animate-spin" 
+                  /> */}
+                </button>
               </div>
             </form>
             <ToastContainer />

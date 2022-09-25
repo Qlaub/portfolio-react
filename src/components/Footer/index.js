@@ -20,7 +20,7 @@ function Footer({ linkSelected }) {
       ${linkSelected === 'home' && 'md:bg-secondary'}
       ${linkSelected === 'contact' && 'md:bg-secondary'}
       rounded-2xl 
-      md:shadow-xl 
+      md:shadow-md 
       ease-in-out 
       duration-300 
       `}
