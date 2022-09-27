@@ -12,6 +12,8 @@ function Contact() {
   const messageRef = useRef();
   const formRef = useRef();
 
+  const [loading, setLoading] = useState(false);
+
   const [show, setShow] = useState(false)
   const transitions = useTransition(show, {
     from: { opacity: 0 },
@@ -41,7 +43,7 @@ function Contact() {
 
   const notify = (status) => {
     if (status === 'success') return toast.success('Email sent, thank you!', {
-      position: "bottom-center",
+      position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -51,7 +53,7 @@ function Contact() {
     });
     
     return toast.error('Unexpected error...', {
-      position: "bottom-center",
+      position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -97,25 +99,29 @@ function Contact() {
     return false;
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
 
     const errors = checkErrors();
+    if (errors) return setLoading(false);
 
-    console.log(errors);
+    try {
+      const result = await emailjs.sendForm('portfolio_service', 'contact_form', formRef.current, 'EdN6ktJzo4SGJL4tX');
+      if (result.text === 'OK') {
+        notify('success');
+        setFormState({ name: '', email: '', message: '' });
+      } else {
+        notify('');
+      }
+    } catch (err) {
+      console.log(err);
+      notify('');
+    } finally {
+      setLoading(false);
+    }
 
-    if (errors) return;
-
-    emailjs.sendForm('portfolio_service', 'contact_form', formRef.current, 'EdN6ktJzo4SGJL4tX')
-      .then((result) => {
-        if (result.text === 'OK') {
-          notify('success');
-          return setFormState({ name: '', email: '', message: '' });
-        }
-      }, (error) => {
-        console.log(error);
-        notify('')
-      });
+    return;
   }
 
   return (
@@ -153,9 +159,9 @@ function Contact() {
                 </div>
               </div>
               <div>
-                <button type="submit" className="tracking-wider bg-[#ffdca4] w-full md:w-fit rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 py-3 transition ease-in-out duration-75 hover:bg-[#ffce80] active:bg-secondary mt-3">
-                  Submit
-                  {/* <div className="inline-block w-8 h-8 
+                <button type="submit" className="flex items-center justify-center tracking-wider bg-[#ffdca4] w-full md:w-36 rounded border-2 border-tertiary text-xl font-bold text-tertiary px-8 h-12 transition ease-in-out duration-75 hover:bg-[#ffce80] active:bg-secondary mt-3">
+                  {loading ?
+                    <div className="inline-block w-8 h-8 
                     border-4
                     border-t-quaternary
                     border-l-tertiary
@@ -163,7 +169,10 @@ function Contact() {
                     border-r-tertiary
                     rounded-full 
                     animate-spin" 
-                  /> */}
+                  />
+                  :
+                  'Submit'
+                }
                 </button>
               </div>
             </form>

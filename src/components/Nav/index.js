@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Nav({linkSelected, setLinkSelected}) {
-  const notify = () => toast.success('Resume Saved', {
+  const notify = () => toast.success('Resume Downloaded', {
     position: "top-right",
   });
 
