@@ -128,13 +128,13 @@ function Contact() {
     <section className="flex justify-center items-center mt-12">
       {transitions((styles, item) => item && (
         <animated.div style={styles}>
-          <div className='bg-quaternary flex flex-col max-w-[800px] gap-2 p-8 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>
+          <div className='bg-quaternary flex flex-col max-w-[570px] gap-2 p-8 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>
             <div className='flex items-end gap-6 md:justify-start justify-center md:min-w-[515px]'>
               <h2 className="text-6xl text-tertiary font-bold">Contact Me</h2>
               <RiMailSendLine className='text-6xl text-primary'/>
             </div>
             <div className='hidden md:inline-block'>
-              <p className='text-zinc-600 md:text-left text-center'>&#40;social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}!&#41;</p>
+              <p className='text-zinc-600 md:text-left text-center'>&#40;social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}&#41;</p>
             </div>
             <form onSubmit={handleSubmit} ref={formRef} className="mt-4">
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>

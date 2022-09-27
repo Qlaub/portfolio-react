@@ -23,12 +23,14 @@ function About() {
           <div className='bg-secondary flex flex-col max-w-5xl gap-8 p-4 md:p-14 shadow-2xl shadow-tertiary'>
             <div className="flex items-center gap-6 md:gap-8 lg:gap-12">
               <h2 className="text-6xl text-tertiary font-bold">About Me</h2>
-              <div className="w-32 lg:w-36 bg-quaternary p-1 rounded-full shadow-lg">
-                <img src={photo} alt="Alex Glaubitz" />
+              <div className="w-32 md:w-40 bg-[#fea516] p-1 rounded-full">
+                <div className='bg-quaternary p-1 rounded-full'>
+                  <img src={photo} alt="Alex Glaubitz" />
+                </div>
               </div>
             </div>
             <div className="leading-7 text-lg text-tertiary">
-              <p className="max-w-3xl">
+              <p className="max-w-2xl">
                 I&apos;m an inquisitive and passionate full stack web developer who brings experience with JavaScript/TypeScript, 
                 the MERN and SERN stacks, and Git. After graduating the UNC-Chapel Hill coding boot camp certificate program in
                 August of this year, I now work as a web developer with a startup company. I&apos;m looking for growth 

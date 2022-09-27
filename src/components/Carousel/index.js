@@ -79,13 +79,15 @@ const Carousel = () => {
           {transitions((styles, item) => item && (
             <animated.div style={styles}>
               <div className='md:mx-8 mx-0 relative bg-tertiary py-4 md:py-12 shadow-2xl shadow-black'>
-                  <div className='absolute left-0 right-0 bottom-4 flex justify-center'>{slideCircles()}</div>
-                <MdNavigateBefore className='absolute top-1/2 text-quaternary z-10 cursor-pointer select-none left-0 md:-left-4 top-[180px] md:top-[200px] text-9xl' onClick={prevSlide} />
-                <MdNavigateNext className='absolute top-1/2 text-quaternary z-10 cursor-pointer select-none right-0 md:-right-4 top-[180px] md:top-[200px] text-9xl' onClick={nextSlide} />
+                <div className='absolute left-0 right-0 bottom-4 flex justify-center'>{slideCircles()}</div>
+                <MdNavigateBefore className='md:active:top-[202px] active:top-[182px] absolute top-1/2 text-quaternary z-20 cursor-pointer select-none left-0 md:-left-4 top-[180px] md:top-[200px] text-9xl' onClick={prevSlide} />
+                <MdNavigateBefore className='absolute top-1/2 text-black z-10 cursor-pointer select-none left-0 md:-left-4 top-[185px] md:top-[205px] text-9xl' />
+                <MdNavigateNext className='md:active:top-[202px] active:top-[182px] absolute top-1/2 text-quaternary z-20 cursor-pointer select-none right-0 md:-right-4 top-[180px] md:top-[200px] text-9xl' onClick={nextSlide} />
+                <MdNavigateNext className='absolute top-1/2 text-black z-10 cursor-pointer select-none right-0 md:-right-4 top-[185px] md:top-[205px] text-9xl' />
                 {slideData.map((slide, index) => {
                   return (
                     <div
-                      className={index === currentSlide ? 'opacity-100 duration-200 ' : 'display-none ease-in-out duration-200 translate-x-16'}
+                      className={`${index === currentSlide ? 'opacity-100 duration-200 ' : 'display-none ease-in-out duration-200 translate-x-16'}`}
                       key={index}
                     >
                       {index === currentSlide && (
@@ -151,15 +153,15 @@ const Carousel = () => {
                               <div className='flex flex-col gap-14 items-end '>
                                 <div className='w-96'>
                                   <p className='text-secondary'>Project name:</p>
-                                  <h2 className='text-5xl text-quaternary font-bold'>{slide.name}</h2>
+                                  <a className='hover:cursor-pointer' onClick={() => openTab(slide.deployUrl)}><h2 className='text-5xl text-quaternary font-bold'>{slide.name}</h2></a>
                                 </div>
-                                <div className='bg-secondary text-tertiary rounded py-4 px-8 flex flex-col gap-6 w-72'>
+                                <div className='bg-secondary text-tertiary rounded-sm py-4 px-8 flex flex-col gap-6 w-72'>
                                   <p>{slide.description}</p>
                                   <p>Made with {slide.techUsed}.</p>
                                 </div>
-                                <div className='flex justify-end text-2xl gap-6'>
-                                  <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover shadow-2xl shadow-black' onClick={() => openTab(slide.deployUrl)} />
-                                  <FaGithub className='cursor-pointer select-none text-primary text-3xl shadow-2xl shadow-black' onClick={() => openTab(slide.repoUrl)} />
+                                <div className='flex justify-end text-2xl gap-6 relative'>
+                                  <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover:text-[#4fbbd8] active:text-[#2eaed1]' onClick={() => openTab(slide.deployUrl)} />
+                                  <FaGithub className='cursor-pointer select-none text-primary text-3xl hover:text-[#4fbbd8] active:text-[#2eaed1]' onClick={() => openTab(slide.repoUrl)} />
                                 </div>
                               </div>
                             </div>
