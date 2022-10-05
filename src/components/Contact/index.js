@@ -26,17 +26,6 @@ function Contact() {
     setShow(true);
   }, [])
 
-  const windowSize = window.innerWidth;
-  const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
-    if (windowSize < 768 && !mobile) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }, [])
-
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const { name, email, message } = formState;
   const [errorMessage, setErrorMessage] = useState({ target: '', val: '' });
@@ -134,7 +123,7 @@ function Contact() {
               <RiMailSendLine className='text-6xl text-primary'/>
             </div>
             <div className='hidden md:inline-block'>
-              <p className='text-zinc-600 md:text-left text-center'>&#40;social media links {mobile ? 'at the bottom of the page' : 'at the bottom right of the page'}&#41;</p>
+              <p className='text-zinc-600 md:text-left text-center text-lg'>My email is e.pirazzi@gmail.com</p>
             </div>
             <form onSubmit={handleSubmit} ref={formRef} className="mt-4">
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
