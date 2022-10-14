@@ -123,7 +123,7 @@ function Contact() {
               <RiMailSendLine className='text-6xl text-primary'/>
             </div>
             <div className='hidden md:inline-block'>
-              <p className='text-zinc-600 md:text-left text-center text-lg'>My email is e.pirazzi@gmail.com</p>
+              <p className='text-zinc-600 md:text-left text-center text-lg leading-6'>Reach out below or email me at <span className='font-bold'>e.pirazzi@gmail.com</span></p>
             </div>
             <form onSubmit={handleSubmit} ref={formRef} className="mt-4">
               <div className={`w-full md:w-1/2 ${errorMessage.target === 'name' && 'mb-3'}`}>
