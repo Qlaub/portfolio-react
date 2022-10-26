@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -27,6 +27,13 @@ switch(window.location.pathname) {
 
 function App() {
   const [linkSelected, setLinkSelected] = useState(page);
+  const [mobile, setMobile] = useState('loading');
+
+  console.log(mobile);
+
+  useEffect(() => {
+    window.innerWidth <= 640 ? setMobile(true) : setMobile(false);
+  }, []);
 
   let bgColor;
   switch(linkSelected) {
@@ -43,27 +50,54 @@ function App() {
       bgColor = 'rgba(159, 218, 234, 0.8)';
   }
 
-  return (
-    <div className="background-image p-0">
-      <div className='overlay' style={{ backgroundColor: `${bgColor}` }}></div>
-      <div className="content">
-        <Router>
-          <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected} />
-          <main>
-            <Routes>
-              <Route path="/portfolio-react" element={<Home />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/resume" element={<Resume />} />
-            </Routes>
-          </main>
-          <Footer linkSelected={linkSelected} />
-        </Router>
+  if (mobile === 'loading') {
+    return (
+      <div>loading...</div>
+    )
+  }
+
+  const DesktopApplication = () => {
+    return (
+      <div className="background-image p-0">
+        <div className='overlay' style={{ backgroundColor: `${bgColor}` }}></div>
+        <div className="content">
+          <Router>
+            <Header linkSelected={linkSelected} setLinkSelected={setLinkSelected} />
+            <main>
+              <Routes>
+                <Route path="/portfolio-react" element={<Home />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/resume" element={<Resume />} />
+              </Routes>
+            </main>
+            <Footer linkSelected={linkSelected} />
+          </Router>
+        </div>
       </div>
-      
-    </div>
+    )
+  };
+
+  const MobileApplication = () => {
+    return (
+      <>
+        <Home />
+        <About />
+        <Portfolio />
+        <Contact />
+      </>
+    )
+  };
+
+  return (
+    <>
+      {mobile 
+        ? <MobileApplication />
+        : <DesktopApplication />
+      }
+    </>
   );
 }
 
