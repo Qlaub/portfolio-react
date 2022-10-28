@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
+import MobileHeader from "./components/MobileHeader";
 
 // sets linkSelected useState on reload
 // helps determine proper background opacity
@@ -28,8 +29,6 @@ switch(window.location.pathname) {
 function App() {
   const [linkSelected, setLinkSelected] = useState(page);
   const [mobile, setMobile] = useState('loading');
-
-  console.log(mobile);
 
   useEffect(() => {
     window.innerWidth <= 640 ? setMobile(true) : setMobile(false);
@@ -82,12 +81,21 @@ function App() {
 
   const MobileApplication = () => {
     return (
-      <>
-        <Home />
-        <About />
-        <Portfolio />
-        <Contact />
-      </>
+      <Router>
+        <MobileHeader />
+        <div id="home">
+          <Home />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="work">
+          <Portfolio />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
+      </Router>
     )
   };
 
