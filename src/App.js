@@ -80,21 +80,25 @@ function App() {
   };
 
   const MobileApplication = () => {
+    const [showNav, setShowNav] = useState(false);
+
     return (
       <Router>
-        <MobileHeader />
-        <div id="home">
-          <Home />
-        </div>
-        <div id="about">
-          <About />
-        </div>
-        <div id="work">
-          <Portfolio />
-        </div>
-        <div id="contact">
-          <Contact />
-        </div>
+        <MobileHeader showNav={showNav} setShowNav={setShowNav} />
+        <main className={`ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
+          <div id="home">
+            <Home />
+          </div>
+          <div id="about">
+            <About />
+          </div>
+          <div id="work">
+            <Portfolio />
+          </div>
+          <div id="contact">
+            <Contact />
+          </div>
+        </main>
       </Router>
     )
   };
