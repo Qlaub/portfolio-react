@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { IoIosMenu } from 'react-icons/io';
 
 function MobileHeader({showNav, setShowNav}) {
 
@@ -30,9 +31,11 @@ function MobileHeader({showNav, setShowNav}) {
   ];
 
   return(
-    <header className="fixed h-screen top-2 right-1 z-50 w-full">
+    <header className="fixed h-screen top-2 right-2 z-50 w-full">
       <div>
-        <div onClick={toggleNav} className='h-12 w-12 border border-black bg-white ml-auto text-2xl p-1'>X</div>
+        <div onClick={toggleNav} className='h-12 w-14 bg-quaternary text-tertiary rounded ml-auto text-5xl flex items-center justify-center'>
+          <IoIosMenu />
+        </div>
         <div className={!showNav && 'hidden'}>
           <ul className="flex flex-col items-center text-6xl gap-3 mx-8">
             {sections.map(({ name, href }) => (
