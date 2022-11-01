@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -8,6 +8,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 import MobileHeader from "./components/MobileHeader";
+import MobileHome from "./components/MobileHome";
+import useIsInViewport from "./hooks/useIsInViewport";
 
 // sets linkSelected useState on reload
 // helps determine proper background opacity
@@ -81,18 +83,25 @@ function App() {
 
   const MobileApplication = () => {
     const [showNav, setShowNav] = useState(false);
+    const workRef = useRef(null);
+
+    const workIsInViewport = useIsInViewport(workRef);
+    console.log('isInViewport2: ', workIsInViewport);
 
     return (
+      <div className="m-background-image p-0">
+        <div className='overlay' style={{ backgroundColor: `${bgColor}` }}></div>
+        <div className="content">
       <Router>
         <MobileHeader showNav={showNav} setShowNav={setShowNav} />
         <main className={`ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
-          <div id="home">
-            <Home />
+          <div id="home" >
+            <MobileHome />
           </div>
           <div id="about">
             <About />
           </div>
-          <div id="work">
+          <div id="work" ref={workRef}>
             <Portfolio />
           </div>
           <div id="contact">
@@ -100,6 +109,8 @@ function App() {
           </div>
         </main>
       </Router>
+      </div>
+      </div>
     )
   };
 
