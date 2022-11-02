@@ -115,7 +115,7 @@ function MobileContact({ ref1, ref2 }) {
   }
 
   return (
-    <section className="flex justify-center items-center h-screen">
+    <section className="flex justify-center items-center h-screen" id='contact'>
       {/* {transitions((styles, item) => item && (
         <animated.div style={styles}> */}
           <div className='bg-quaternary flex flex-col max-w-[570px] gap-2 p-8 md:p-14 md:pb-10 shadow-2xl shadow-tertiary'>

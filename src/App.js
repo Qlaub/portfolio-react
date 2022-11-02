@@ -122,20 +122,20 @@ function App() {
     ]);
 
     return (
-      <div className="m-background-image p-0">
-        <div className='m-overlay' style={{ backgroundColor: `${bgColor}` }}></div>
-        <div className="content">
       <Router>
         <MobileHeader showNav={showNav} setShowNav={setShowNav} />
-        <main className={`ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
-          <MobileHome ref1={homeRef1} ref2={homeRef2} />
-          <MobileAbout ref1={aboutRef1} ref2={aboutRef2} />
-          <MobilePortfolio ref1={workRef1} ref2={workRef2} />
-          <MobileContact ref1={contactRef1} ref2={contactRef2} />
-        </main>
+        <div className={`m-background-image p-0 ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
+          <div className='m-overlay' style={{ backgroundColor: `${bgColor}` }} />
+          <div className="content">
+            <main>
+              <MobileHome ref1={homeRef1} ref2={homeRef2} />
+              <MobileAbout ref1={aboutRef1} ref2={aboutRef2} />
+              <MobilePortfolio ref1={workRef1} ref2={workRef2} />
+              <MobileContact ref1={contactRef1} ref2={contactRef2} />
+            </main>
+          </div>
+        </div>
       </Router>
-      </div>
-      </div>
     )
   };
 

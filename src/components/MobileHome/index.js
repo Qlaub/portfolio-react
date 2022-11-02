@@ -17,7 +17,7 @@ function MobileHome({ ref1, ref2 }) {
   // }, [])
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen" id="home">
       {/* {transitions((styles, item) => item && (
         <animated.div style={styles}> */}
           <div className="

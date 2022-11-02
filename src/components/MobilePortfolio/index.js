@@ -5,13 +5,15 @@ import MobileCarousel from "../MobileCarousel";
 function MobilePortfolio({ ref1, ref2 }) {
   
   return (
-    <div className="
-      flex
-      w-screen
-      justify-center
-      items-center
-      h-screen
-    ">
+    <div 
+      className="
+        flex
+        w-screen
+        justify-center
+        items-center
+        h-screen"
+      id="work"
+    >
       <div className='max-w-[976px]'>
         <div ref={ref1} />
         <MobileCarousel />

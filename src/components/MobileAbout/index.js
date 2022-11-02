@@ -18,7 +18,7 @@ function MobileAbout({ ref1, ref2 }) {
   // }, [])
 
   return (
-    <section className="flex justify-center items-center h-screen">
+    <section className="flex justify-center items-center h-screen" id='about'>
       {/* {transitions((styles, item) => item && (
         <animated.div style={styles}> */}
           <div className='bg-secondary flex flex-col max-w-5xl gap-8 p-4 md:p-14 shadow-2xl shadow-tertiary'>
