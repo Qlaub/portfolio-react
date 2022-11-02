@@ -10,6 +10,9 @@ import Resume from "./components/Resume";
 import MobileHeader from "./components/MobileHeader";
 import MobileHome from "./components/MobileHome";
 import useIsInViewport from "./hooks/useIsInViewport";
+import MobileAbout from "./components/MobileAbout";
+import MobilePortfolio from "./components/MobilePortfolio";
+import MobileContact from "./components/MobileContact";
 
 // sets linkSelected useState on reload
 // helps determine proper background opacity
@@ -83,30 +86,52 @@ function App() {
 
   const MobileApplication = () => {
     const [showNav, setShowNav] = useState(false);
-    const workRef = useRef(null);
 
-    const workIsInViewport = useIsInViewport(workRef);
-    console.log('isInViewport2: ', workIsInViewport);
+    const homeRef1 = useRef(null);
+    const homeRef2 = useRef(null);
+    const aboutRef1 = useRef(null);
+    const aboutRef2 = useRef(null);
+    const workRef1 = useRef(null);
+    const workRef2 = useRef(null);
+    const contactRef1 = useRef(null);
+    const contactRef2 = useRef(null);
+
+    const homeViewport1 = useIsInViewport(homeRef1);
+    const homeViewport2 = useIsInViewport(homeRef2);
+    const aboutViewport1 = useIsInViewport(aboutRef1);
+    const aboutViewport2 = useIsInViewport(aboutRef2);
+    const workViewport1 = useIsInViewport(workRef1);
+    const workViewport2 = useIsInViewport(workRef2);
+    const contactViewport1 = useIsInViewport(contactRef1);
+    const contactViewport2 = useIsInViewport(contactRef2);
+
+    useEffect(() => {
+      if (homeViewport1 && homeViewport2) setLinkSelected('home');
+      if (aboutViewport1 && aboutViewport2) setLinkSelected('about');
+      if (workViewport1 && workViewport2) setLinkSelected('work');
+      if (contactViewport1 && contactViewport2) setLinkSelected('contact');
+    }, [
+      workViewport1, 
+      workViewport2,
+      homeViewport1,
+      homeViewport2,
+      aboutViewport1,
+      aboutViewport2,
+      contactViewport1,
+      contactViewport2,
+    ]);
 
     return (
       <div className="m-background-image p-0">
-        <div className='overlay' style={{ backgroundColor: `${bgColor}` }}></div>
+        <div className='m-overlay' style={{ backgroundColor: `${bgColor}` }}></div>
         <div className="content">
       <Router>
         <MobileHeader showNav={showNav} setShowNav={setShowNav} />
         <main className={`ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
-          <div id="home" >
-            <MobileHome />
-          </div>
-          <div id="about">
-            <About />
-          </div>
-          <div id="work" ref={workRef}>
-            <Portfolio />
-          </div>
-          <div id="contact">
-            <Contact />
-          </div>
+          <MobileHome ref1={homeRef1} ref2={homeRef2} />
+          <MobileAbout ref1={aboutRef1} ref2={aboutRef2} />
+          <MobilePortfolio ref1={workRef1} ref2={workRef2} />
+          <MobileContact ref1={contactRef1} ref2={contactRef2} />
         </main>
       </Router>
       </div>
