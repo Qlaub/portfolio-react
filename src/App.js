@@ -13,6 +13,7 @@ import useIsInViewport from "./hooks/useIsInViewport";
 import MobileAbout from "./components/MobileAbout";
 import MobilePortfolio from "./components/MobilePortfolio";
 import MobileContact from "./components/MobileContact";
+import {useSpring, useTransition, animated, config} from 'react-spring';
 
 // sets linkSelected useState on reload
 // helps determine proper background opacity
@@ -34,25 +35,37 @@ switch(window.location.pathname) {
 function App() {
   const [linkSelected, setLinkSelected] = useState(page);
   const [mobile, setMobile] = useState('loading');
+  const [prevBgColor, setPrevBgColor] = useState('');
+  const [bgColor, setBgColor] = useState('rgba(159, 218, 234, 0.8)');
+  const [transition, setTransition] = useState(false);
 
   useEffect(() => {
     window.innerWidth <= 640 ? setMobile(true) : setMobile(false);
   }, []);
 
-  let bgColor;
-  switch(linkSelected) {
-    case 'work':
-      bgColor = 'rgba(0, 0, 0, 0.90)';
-      break;
-    case 'about':
-      bgColor = 'rgba(254, 216, 154, 0.8)';
-      break;
-    case 'contact':
-      bgColor = 'rgba(255, 255, 255, 0.90)';
-      break;
-    default: 
-      bgColor = 'rgba(159, 218, 234, 0.8)';
-  }
+  useEffect(() => {
+    switch(linkSelected) {
+      case 'work':
+        setPrevBgColor(bgColor);
+        setBgColor('rgba(0, 0, 0, 0.90)');
+        setTransition(true);
+        break;
+      case 'about':
+        setPrevBgColor(bgColor);
+        setBgColor('rgba(254, 216, 154, 0.8)');
+        setTransition(true);
+        break;
+      case 'contact':
+        setPrevBgColor(bgColor);
+        setBgColor('rgba(255, 255, 255, 0.90)');
+        setTransition(true);
+        break;
+      default: 
+        setPrevBgColor(bgColor);
+        setBgColor('rgba(159, 218, 234, 0.8)');
+        setTransition(true);
+    }
+  }, [linkSelected])
 
   if (mobile === 'loading') {
     return (
@@ -121,11 +134,19 @@ function App() {
       contactViewport2,
     ]);
 
+    const transitions = useTransition(transition, {
+      from: { backgroundColor: prevBgColor },
+      enter: { backgroundColor: bgColor },
+      leave: { opacity: 0 },
+      delay: 100,
+      config: config.molasses,
+    });
+
     return (
       <Router>
         <MobileHeader showNav={showNav} setShowNav={setShowNav} />
         <div className={`m-background-image p-0 ease-in-out duration-150 ${showNav && 'blur-2xl'}`}>
-          <div className='m-overlay' style={{ backgroundColor: `${bgColor}` }} />
+          <div className={`m-overlay transition-all ease-in-out duration-500`} style={{ backgroundColor: `${bgColor}` }} />
           <div className="content">
             <main>
               <MobileHome ref1={homeRef1} ref2={homeRef2} />

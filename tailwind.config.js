@@ -10,6 +10,10 @@ module.exports = {
         secondary: '#febb52',
         tertiary: '#3F3D48',
         quaternary: '#f8fef0',
+        primaryBg: 'rgba(159, 218, 234, 0.8)',
+        secondaryBg: 'rgba(254, 216, 154, 0.8)',
+        tertiaryBg: 'rgba(0, 0, 0, 0.90)',
+        quaternaryBg: 'rgba(255, 255, 255, 0.90)', 
       },
       height: {
         screen2: "50vh",

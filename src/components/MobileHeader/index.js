@@ -11,22 +11,18 @@ function MobileHeader({showNav, setShowNav}) {
     {
       href: '/#home',
       name: 'Home',
-      color: 'primary'
     },
     {
       href: '/#about',
       name: 'About',
-      color: 'secondary'
     },
     {
       href: '/#work',
       name: 'Work',
-      color: 'tertiary',
     },
     {
       href: '/#contact',
       name: 'Contact',
-      color: 'quaternary',
     },
   ];
 
