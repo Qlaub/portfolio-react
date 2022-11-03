@@ -157,7 +157,7 @@ const Carousel = () => {
                                 </div>
                                 <div className='bg-secondary text-tertiary rounded-sm py-4 px-8 flex flex-col gap-6 w-72'>
                                   <p>{slide.description}</p>
-                                  <p>Made with {slide.techUsed}.</p>
+                                  <p>Made with {slide.techUsed}</p>
                                 </div>
                                 <div className='flex justify-end text-2xl gap-6 relative'>
                                   <FaExternalLinkAlt className='cursor-pointer select-none text-primary text-3xl hover:text-[#4fbbd8] active:text-[#2eaed1]' onClick={() => openTab(slide.deployUrl)} />

@@ -2,10 +2,18 @@ import potluck from '../../assets/images/potluck.jpg';
 import colorcoded from '../../assets/images/colorcoded.jpg';
 import codequiz from '../../assets/images/codequiz.jpg';
 import weather from '../../assets/images/weather.jpg';
-import scheduler from '../../assets/images/scheduler.jpg';
 import roam from '../../assets/images/roam.jpg';
+import pf from '../../assets/images/pf.jpg';
 
 export const slideData = [
+  {
+    name: "Paperless Fundraisers",
+    techUsed: "TypeScript/React/Next.js/Redux",
+    deployUrl: "https://pf03-myeqfcb88-paperless-fundraisers.vercel.app/",
+    repoUrl: "https://github.com/Paperless-Fundraisers/pf03",
+    image: pf,
+    description: "A simple, centralized, system for running your fundraiser."
+  },
   {
     name: "Roam",
     techUsed: "MongoDB/Express/React/Node",
@@ -46,14 +54,14 @@ export const slideData = [
     image: weather,
     description: "Want to know the weather conditions for a particular place? Check it out here!"
   },
-  {
-    name: "Work Day Scheduler",
-    techUsed: "JS/CSS/HTML",
-    deployUrl: "https://qlaub.github.io/Work-Day-Scheduler/",
-    repoUrl: "https://github.com/Qlaub/Work-Day-Scheduler",
-    image: scheduler,
-    description: "Help plan the events of your day with this simple day calendar."
-  },
+  // {
+  //   name: "Work Day Scheduler",
+  //   techUsed: "JS/CSS/HTML",
+  //   deployUrl: "https://qlaub.github.io/Work-Day-Scheduler/",
+  //   repoUrl: "https://github.com/Qlaub/Work-Day-Scheduler",
+  //   image: scheduler,
+  //   description: "Help plan the events of your day with this simple day calendar."
+  // },
   // {
   //   name: "Password Generator",
   //   techUsed: "JS/CSS/HTML",
